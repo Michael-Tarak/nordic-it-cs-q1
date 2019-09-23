@@ -9,80 +9,75 @@ namespace HomeWork2
             Console.InputEncoding = Encoding.UTF8;
             Console.OutputEncoding = Encoding.UTF8;
             Console.WriteLine("Введите первое число");
-            long a = Convert.ToInt64(Console.ReadLine());
+            long firstOperand = Convert.ToInt64(Console.ReadLine());
             Console.WriteLine("Введите второе число");
-            long b = Convert.ToInt64(Console.ReadLine());
-            Console.WriteLine($"{a} + {b} = {a + b}");
-            Console.WriteLine($"{a} - {b} = {a - b}");
-            Console.WriteLine($"{a} * {b} = {a * b}");
+            long secondOperand = Convert.ToInt64(Console.ReadLine());
+            Console.WriteLine($"{firstOperand} + {secondOperand} = {firstOperand + secondOperand}");
+            Console.WriteLine($"{firstOperand} - {secondOperand} = {firstOperand - secondOperand}");
+            Console.WriteLine($"{firstOperand} * {secondOperand} = {firstOperand * secondOperand}");
             Hardmode();
         }
+        static void CalculationOperation(long x, long y)
+        {
+            Console.WriteLine("Выберите тип операции: сложение +, разность -, умножение *, деление(остаток отбрасывается) /,\n остаток от деления %, возведение в степень ^");
+            string operation = Console.ReadLine();
+            long operationResult;
+            if (operation == "+")
+            {
+                Console.WriteLine($"{x} + {y} = {operationResult = x + y}");
+            }
+            else if (operation == "-")
+            {
+                Console.WriteLine($"{x} - {y} = {operationResult = x - y}"); ;
+            }
+            else if (operation == "*")
+            {
+                Console.WriteLine($"{x} * {y} = {operationResult = x * y}");
+            }
+            else if (operation == "/")
+            {
+                Console.WriteLine($"{x} / {y} = {operationResult = x / y}");
+            }
+            else if (operation == "^")
+            {
+                Console.WriteLine($"{x} ^ {y} = {operationResult = Convert.ToInt64(Math.Pow(Convert.ToDouble(x), Convert.ToDouble(y)))}");
+            }
+            else if (operation == "%")
+            {
+                Console.WriteLine($"{x} % {y} = {operationResult = x % y}");
+            }
+            else
+            {
+                Console.WriteLine("Запрашивается несуществующая операция, повторите попытку");
+                CalculationOperation(x, y);
+            }
+        }
+
         static void Hardmode()
         {
-            void CalculationOperation( long x, long y )
-            {
-                Console.WriteLine("Выберите тип операции: сложение +, разность -, умножение *, деление(остаток отбрасывается) /, остаток от деления %, возведение в степень ^");
-                string c = Console.ReadLine();
-                long d;
-                if (c == "+")
-                {
-                    Console.WriteLine($"{x} + {y} = {d = x + y}");
-                }
-                else
-                {
-                    if (c == "-")
-                    {
-                        Console.WriteLine($"{x} - {y} = {d = x - y}"); ;
-                    }
-                    else
-                    {
-                        if (c == "*")
-                        {
-                            Console.WriteLine($"{x} * {y} = {d = x * y}");
-                        }
-                        else
-                        {
-                            if (c == "/")
-                            {
-                                Console.WriteLine($"{x} / {y} = {d = x / y}");
-                            }
-                            else
-                            {
-                                if (c == "^")
-                                {
-                                    Console.WriteLine($"{x} ^ {y} = {d = Convert.ToInt64(Math.Pow(Convert.ToDouble(x), Convert.ToDouble(y)))}");
-                                }
-                                else
-                                {
-                                    if(c == "%")
-                                    {
-                                        Console.WriteLine($"{x} % {y} = {d = x % y}");
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine("Неправильно введена операция, повторите попытку");
-                                        CalculationOperation(x, y);
-                                    }
-                                }
-                                
-                            }
-                        }
-                    }
-                }
-            }
             Console.InputEncoding = Encoding.UTF8;
             Console.OutputEncoding = Encoding.UTF8;
             try
             {
                 Console.WriteLine("Введите первое число");
-                long a = Convert.ToInt64(Console.ReadLine());
+                long firstOperand = Convert.ToInt64(Console.ReadLine());
                 Console.WriteLine("Введите второе число");
-                long b = Convert.ToInt64(Console.ReadLine());
-                CalculationOperation( a , b );
+                long secondOperand = Convert.ToInt64(Console.ReadLine());
+                CalculationOperation( firstOperand , secondOperand );
             }
-            catch (Exception e)
+            catch (FormatException)
             {
-                Console.WriteLine("Ошибка ввода, проверьте корректность введененых значений");
+                Console.WriteLine("Такого числа не существует, введите число заново");
+                Hardmode();
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("Число слишком большое, либо слишком малое");
+                Hardmode();
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Попытка деления на ноль");
                 Hardmode();
             }
         }
