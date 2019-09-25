@@ -6,8 +6,8 @@ namespace Homework3
     {
         static void Main(string[] args)
         {
-            Console.InputEncoding = System.Text.Encoding.UTF8;
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Console.InputEncoding = System.Text.Encoding.Unicode;
+            Console.OutputEncoding = System.Text.Encoding.Unicode;
 
             object[] names = new object[3];
             for(int i = 0; i < names.Length; i++)
