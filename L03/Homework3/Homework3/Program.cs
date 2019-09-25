@@ -9,7 +9,7 @@ namespace Homework3
             Console.InputEncoding = System.Text.Encoding.Unicode;
             Console.OutputEncoding = System.Text.Encoding.Unicode;
 
-            object[] names = new object[3];
+            string[] names = new string[3];
             for(int i = 0; i < names.Length; i++)
             {
                 Console.Write($"Введите {i + 1}-е имя: ");
@@ -18,22 +18,21 @@ namespace Homework3
             byte[] ages = new byte[3];
             for (int i = 0; i <ages.Length; i++)
             {
-                Console.Write($"Введите возраст {i + 1}-го человека: ");
-                if (!byte.TryParse(Console.ReadLine(), out ages[i]))
+                while(true)
                 {
-                    Console.WriteLine("Неверно указан возраст, повторите попытку.");
-                    i--;
-                }
-                if (ages[i] < 0)
-                {
-                    Console.WriteLine("Неверно указан возраст, повторите попытку.");
-                    i--;
+                    Console.Write($"Введите возраст {i + 1}-го человека: ");
+                    if (byte.TryParse(Console.ReadLine(), out ages[i]))
+                    {
+                        if (ages[i] > 0)
+                            break;
+                    }
+                    Console.WriteLine("Введен некорректный возраст, повторите попытку.");
                 }
             }
             Console.WriteLine("Список персон:");
             for(int i = 0; i < names.Length && i < ages.Length; i++)
             {
-                Console.WriteLine($"Имя: {names[i]}; возраст через 4 года: {ages[i]+4}");
+                Console.WriteLine($"Имя: {names[i]}; возраст через 4 года: {ages[i]+4}.");
             }
         }
     }
