@@ -2,7 +2,12 @@
 
 namespace HomeWork4
 {
-    [Flags] enum Containers {Один_литр = 0x1,Пять_литров = 0x2, Двадцать_литров = 0x4 };
+    [Flags] enum Containers
+    {
+        One_Litre = 0x1,
+        Five_Litres = 0x2,
+        Twenty_litres = 0x4
+    };
     class Program
     {
         static void Main(string[] args)
@@ -15,7 +20,6 @@ namespace HomeWork4
             {
                 if (double.TryParse(Console.ReadLine(), out volumeLitras) && volumeLitras >= 0)
                     break;
-
             }
             if (volumeLitras == 0)
                 Console.WriteLine("Контейнеры не нужны.");
@@ -23,35 +27,27 @@ namespace HomeWork4
             {
                 Containers containersFlags = 0;
                 short[] containersCounter = new short[3];
-                while (volumeLitras > 0)
+                containersCounter[2] = Convert.ToInt16(Math.Floor(volumeLitras / 20));
+                if (containersCounter[2] != 0)
                 {
-                    if (volumeLitras >= 20)
-                    {
-                        containersFlags |= Containers.Двадцать_литров;
-                        volumeLitras -= 20;
-                        containersCounter[2]++;
-                    }
-                    else if (volumeLitras >= 5)
-                    {
-                        containersFlags |= Containers.Пять_литров;
-                        volumeLitras -= 5;
-                        containersCounter[1]++;
-
-                    }
-                    else
-                    {
-                        containersFlags |= Containers.Один_литр;
-                        volumeLitras -= 1;
-                        containersCounter[0]++;
-                    }
+                    containersFlags |= Containers.Twenty_litres;
+                    volumeLitras -= Convert.ToDouble(containersCounter[2] * 20);
                 }
-                byte j = 0;
-                Console.WriteLine("Вам потребуются следующие контейнеры:");
-                foreach (Containers i in Enum.GetValues(typeof(Containers)))
+                containersCounter[1] = Convert.ToInt16(Math.Floor(volumeLitras / 5));
+                if(containersCounter[1] != 0)
                 {
-                    if ((containersFlags & i) == i)
-                        Console.WriteLine($"{i}: {containersCounter[j]} шт.");
-                    j++;
+                    containersFlags |= Containers.Five_Litres;
+                    volumeLitras -= Convert.ToDouble(containersCounter[1] * 5);
+                }
+                containersCounter[0] = Convert.ToInt16(Math.Ceiling(volumeLitras));
+                if(containersCounter[0] != 0)
+                    containersFlags |= Containers.One_Litre;
+                var containersCycle = (Containers[])Enum.GetValues(typeof(Containers));
+                Console.WriteLine("Вам потребуются следующие контейнеры:");
+                for (int i = 0; i < containersCycle.Length; i++)
+                {
+                    if ((containersFlags & containersCycle[i]) == containersCycle[i])
+                        Console.WriteLine($"{containersCycle[i]}: {containersCounter[i]} шт.");
                 }
             }
         }
