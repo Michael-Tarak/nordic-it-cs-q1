@@ -6,16 +6,32 @@ namespace ClassWork5
     {
         static void Main(string[] args)
         {
-            double output;
+            Console.InputEncoding = System.Text.Encoding.Unicode;
+            Console.OutputEncoding = System.Text.Encoding.Unicode;
+            byte output;
             while(true)
             {
-                if(double.TryParse(Console.ReadLine(), out output))
+                if(byte.TryParse(Console.ReadLine(), out output))
                 {
                     break;
                 }
             }
-            var outputNew = (output > 100 ? "Input is more than 100" : "Input is less or equal 100");
-            Console.WriteLine(outputNew);
+            int lastDigit = output % 10;
+            switch (lastDigit)
+            {
+                case 1:
+                    Console.WriteLine($"{output} год");
+                    break;
+                case 2:
+                case 3:
+                case 4:
+                    Console.WriteLine($"{output} года");
+                    break;
+                default:
+                    Console.WriteLine($"{output} лет");
+                    break;
+            }
+
         }
     }
 }
