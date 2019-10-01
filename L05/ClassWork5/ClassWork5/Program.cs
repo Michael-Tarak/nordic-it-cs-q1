@@ -14,14 +14,8 @@ namespace ClassWork5
                     break;
                 }
             }
-            if (output > 100)
-            {
-                Console.WriteLine("Input is more than 100");
-            }
-            else
-            {
-                Console.WriteLine("Input is less or equal 100");
-            }
+            var outputNew = (output > 100 ? "Input is more than 100" : "Input is less or equal 100");
+            Console.WriteLine(outputNew);
         }
     }
 }
