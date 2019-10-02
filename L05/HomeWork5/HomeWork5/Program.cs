@@ -29,7 +29,7 @@ namespace HomeWork5
                 short figureInput = short.Parse(Console.ReadLine());
                 switch(figureInput)
                 {
-                    case 1:
+                    case (int)Figures.Circle:
                         Console.Write("Введите значение диаметра: ");
                         double circleDiameter = double.Parse(Console.ReadLine());
                         if (circleDiameter <= 0)
@@ -37,7 +37,7 @@ namespace HomeWork5
                         squareOfFigure = Math.PI * Math.Pow(circleDiameter/2d, 2);
                         perimeterOfFigure = Math.PI * circleDiameter;
                         break;
-                    case 2:
+                    case (int)Figures.Triangle:
                         Console.Write("Введите значение стороны треугольника: ");
                         double sideOfTriangle = double.Parse(Console.ReadLine());
                         if (sideOfTriangle <= 0)
@@ -45,7 +45,7 @@ namespace HomeWork5
                         squareOfFigure = (Math.Pow(sideOfTriangle, 2) * Math.Pow(3d, 2)) / 4d;
                         perimeterOfFigure = sideOfTriangle * 3d;
                         break;
-                    case 3:
+                    case (int)Figures.Rectangle:
                         Console.Write("Введите значение длины прямоугольника: ");
                         double lengthOfRectangle = double.Parse(Console.ReadLine());
                         Console.Write("Введите значение ширины прямоугольника: ");
