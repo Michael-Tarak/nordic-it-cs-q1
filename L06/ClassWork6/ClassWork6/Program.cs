@@ -17,26 +17,27 @@ namespace ClassWork6
             var averageMark = new double[marks.Length];
             int i = 0;
             double sumOfWeek = 0;
+            int sumOfMarks = 0;
             for (; i < marks.Length; i++)
             {
                 double sumOfDay = 0;
                 if (marks[i] == null)
                 {
                     Console.WriteLine($"The average mark for day #{i + 1} is: N/A");
-
                     continue;
-
                 }
-
                 for (int j = 0; j < marks[i].Length; j++)
                 {
                     sumOfDay += marks[i][j];
                     averageMark[i] = sumOfDay / marks[i].Length;
-                    sumOfWeek += averageMark[i];
                 }
+                sumOfWeek += averageMark[i];
+
+                sumOfMarks++;
+
                 Console.WriteLine($"The average mark for day #{i + 1} is: {averageMark[i]}");
             }
-            Console.WriteLine($"The average mark for week is {sumOfWeek/marks.Length}");
+            Console.WriteLine($"The average mark for week is {sumOfWeek/sumOfMarks}");
         }
     }
 }
