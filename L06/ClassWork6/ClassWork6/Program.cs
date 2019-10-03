@@ -6,15 +6,24 @@ namespace ClassWork6
     {
         static void Main(string[] args)
         {
-            string input;
+            var input = "";
             do
             {
-                Console.InputEncoding = System.Text.Encoding.Unicode;
-                Console.OutputEncoding = System.Text.Encoding.Unicode;
-                Console.WriteLine("Введите exit для выхода");
-                 input = Console.ReadLine();
-            }
-            while (input != "exit".ToLower());
+                try
+                {
+                    Console.WriteLine("Type in your string");
+                    input = Console.ReadLine();
+                    if (input.Length > 15)
+                        throw new OverflowException();
+                    Console.WriteLine("Entered string length is {0}", input.Length);
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("Too long string. Try another:");
+                    continue;
+                }
+            } while (!string.Equals(input,"exit", StringComparison.OrdinalIgnoreCase));
+            Console.ReadKey();
         }
     }
 }
