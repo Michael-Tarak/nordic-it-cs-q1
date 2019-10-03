@@ -9,10 +9,12 @@ namespace ClassWork6
             string input;
             do
             {
-                Console.WriteLine("exit to complete program");
+                Console.InputEncoding = System.Text.Encoding.Unicode;
+                Console.OutputEncoding = System.Text.Encoding.Unicode;
+                Console.WriteLine("Введите exit для выхода");
                  input = Console.ReadLine();
             }
-            while (input != "exit");
+            while (input != "exit".ToLower());
         }
     }
 }
