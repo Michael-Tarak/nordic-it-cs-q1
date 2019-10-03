@@ -6,33 +6,37 @@ namespace ClassWork6
     {
         static void Main(string[] args)
         {
-            var numbers = new double[7];
-            int counter = 0;
-            double sum = 0;
-
-            while ( counter < numbers.Length)
+            var marks = new[]
             {
-                try
+                new [] {2,3,3,2,3},
+                new [] {2,4,5,3},
+                null,
+                new [] {5,5,5,5},
+                new [] {4}
+            };
+            var averageMark = new double[marks.Length];
+            int i = 0;
+            double sumOfWeek = 0;
+            for (; i < marks.Length; i++)
+            {
+                double sumOfDay = 0;
+                if (marks[i] == null)
                 {
-                    Console.WriteLine($"Type in a number {counter+1}");
-                    sum += double.Parse(Console.ReadLine());
-                    Console.WriteLine($"Sum of numbers is {sum}");
-                    counter++;
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Not a number!");
+                    Console.WriteLine($"The average mark for day #{i + 1} is: N/A");
+
                     continue;
+
                 }
-                catch (OverflowException)
+
+                for (int j = 0; j < marks[i].Length; j++)
                 {
-                    Console.WriteLine("Number out of range!");
-                    continue;
+                    sumOfDay += marks[i][j];
+                    averageMark[i] = sumOfDay / marks[i].Length;
+                    sumOfWeek += averageMark[i];
                 }
+                Console.WriteLine($"The average mark for day #{i + 1} is: {averageMark[i]}");
             }
-            Console.WriteLine($"Sum of all numbers is {sum}");
-            //while (!string.Equals(input,"exit", StringComparison.OrdinalIgnoreCase));
-            Console.ReadKey();
+            Console.WriteLine($"The average mark for week is {sumOfWeek/marks.Length}");
         }
     }
 }
