@@ -24,6 +24,11 @@ namespace ClassWork6
                     Console.WriteLine("Not a number!");
                     continue;
                 }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("Number out of range!");
+                    continue;
+                }
             }
             Console.WriteLine($"Sum of all numbers is {sum}");
             //while (!string.Equals(input,"exit", StringComparison.OrdinalIgnoreCase));
