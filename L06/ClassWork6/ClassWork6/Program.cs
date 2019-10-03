@@ -11,7 +11,7 @@ namespace ClassWork6
             {
                 try
                 {
-                    Console.WriteLine("Type in your string");
+                    Console.WriteLine("Type in your string, to leave, type exit");
                     input = Console.ReadLine();
                     if (input.Length > 15)
                         throw new OverflowException();
