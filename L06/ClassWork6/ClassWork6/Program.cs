@@ -6,23 +6,27 @@ namespace ClassWork6
     {
         static void Main(string[] args)
         {
-            var input = "";
-            do
+            var numbers = new double[7];
+            int counter = 0;
+            double sum = 0;
+
+            while ( counter < numbers.Length)
             {
                 try
                 {
-                    Console.WriteLine("Type in your string, to leave, type exit");
-                    input = Console.ReadLine();
-                    if (input.Length > 15)
-                        throw new OverflowException();
-                    Console.WriteLine("Entered string length is {0}", input.Length);
+                    Console.WriteLine($"Type in a number {counter+1}");
+                    sum += double.Parse(Console.ReadLine());
+                    Console.WriteLine($"Sum of numbers is {sum}");
+                    counter++;
                 }
-                catch (OverflowException)
+                catch (FormatException)
                 {
-                    Console.WriteLine("Too long string. Try another:");
+                    Console.WriteLine("Not a number!");
                     continue;
                 }
-            } while (!string.Equals(input,"exit", StringComparison.OrdinalIgnoreCase));
+            }
+            Console.WriteLine($"Sum of all numbers is {sum}");
+            //while (!string.Equals(input,"exit", StringComparison.OrdinalIgnoreCase));
             Console.ReadKey();
         }
     }
