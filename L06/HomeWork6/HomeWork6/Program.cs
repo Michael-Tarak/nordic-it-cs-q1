@@ -34,11 +34,16 @@ namespace HomeWork6
         {
             try
             {
-                Console.Write("Введите положительное натуральное число не более 2 миллиардов: ");
-                int startNumber = int.Parse(Console.ReadLine());
-                if (startNumber <= 0 || 2000000000  < startNumber )
+                int startNumber;
+                while (true)
                 {
-                    throw new OverflowException();
+                    Console.Write("Введите положительное натуральное число не более 2 миллиардов: ");
+
+                    if ((int.TryParse(Console.ReadLine(),out startNumber)) && startNumber > 0 && startNumber <= 2000000000)
+                    {
+                        break;
+                    }
+                    Console.WriteLine("Неверное число!");
                 }
                 byte evenCounter = 0;
                 int tempNumber = startNumber;
@@ -55,37 +60,45 @@ namespace HomeWork6
             catch (FormatException)
             {
                 Console.WriteLine("Введено ненатуральное число!");
-                FirstHomeWork();
             }
             catch (OverflowException)
             {
-                Console.WriteLine("Введено запредельное значение!");
-                FirstHomeWork();
+                Console.WriteLine("Значение слишком большое!");
             }
         }
         static void SecondHomeWork()
         {
             try
             {
-                Console.Write("Введите сумму первоначального взноса в рублях: ");
-                decimal deposition = decimal.Parse(Console.ReadLine());
-                if (deposition <= 0)
+                decimal deposition;
+                decimal stonksPercent;
+                decimal stonksResult;
+                while(true)
                 {
-                    throw new OverflowException();
+                    Console.Write("Введите сумму первоначального взноса в рублях: ");
+                    if (decimal.TryParse(Console.ReadLine(), out deposition) && deposition > 0)
+                    {
+                        break;
+                    }
+                    Console.WriteLine("Неверное значение!");
                 }
-
-                Console.Write("Введите ежедневный процент дохода в виде десятичной дроби (1% = 0,01): ");
-                decimal stonksPercent = decimal.Parse(Console.ReadLine());
-                if (stonksPercent <= 0)
+                while (true)
                 {
-                    throw new OverflowException();
+                    Console.Write("Введите ежедневный процент дохода в виде десятичной дроби (1% = 0,01): ");
+                    if (decimal.TryParse(Console.ReadLine(),out stonksPercent) && stonksPercent > 0)
+                    {
+                        break;
+                    }
+                    Console.WriteLine("Неверное значение!");
                 }
-
-                Console.Write("Введите желаемую сумму накопления в рублях: ");
-                decimal stonksResult = decimal.Parse(Console.ReadLine());
-                if (stonksResult <= 0)
+                while(true)
                 {
-                    throw new OverflowException();
+                    Console.Write("Введите желаемую сумму накопления в рублях: ");
+                    if (decimal.TryParse(Console.ReadLine(), out stonksResult) && stonksResult > 0)
+                    {
+                        break;
+                    }
+                    Console.WriteLine("Неверное значение!");
                 }
                 int dayCounter = 0;
                 while(deposition < stonksResult)
@@ -98,12 +111,10 @@ namespace HomeWork6
             catch (FormatException)
             {
                 Console.WriteLine("В вводе обнаружен символ!");
-                SecondHomeWork();
             }
             catch (OverflowException)
             {
-                Console.WriteLine("Введено некорректное значение!");
-                SecondHomeWork();
+                Console.WriteLine("Значение слишком большое!");
             }
         }
     }
