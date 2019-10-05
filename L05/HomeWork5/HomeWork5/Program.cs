@@ -19,67 +19,95 @@ namespace HomeWork5
         }
         static void ChoiceOfFigure()
         {
-            Console.WriteLine($"Введите тип фигуры({(int)Figures.Circle} - {Figures.Circle}," +
-                $" {(int)Figures.Triangle} - {Figures.Triangle}," +
-                $" {(int)Figures.Rectangle} - {Figures.Rectangle} ):");
-            try
+            bool exitBool = false;
+            while(!exitBool)
             {
-                double squareOfFigure = default;
-                double perimeterOfFigure = default;
-                short figureInput = short.Parse(Console.ReadLine());
-                switch(figureInput)
+                Console.WriteLine($"Введите тип фигуры({(int)Figures.Circle} - {Figures.Circle}," +
+                    $" {(int)Figures.Triangle} - {Figures.Triangle}," +
+                    $" {(int)Figures.Rectangle} - {Figures.Rectangle} ), для выхода введите 0:");
+                try
                 {
-                    case (int)Figures.Circle:
-                        Console.Write("Введите значение диаметра: ");
-                        double circleDiameter = double.Parse(Console.ReadLine());
-                        if (circleDiameter <= 0)
-                            throw new ArgumentException();
-                        squareOfFigure = Math.PI * Math.Pow(circleDiameter/2d, 2);
-                        perimeterOfFigure = Math.PI * circleDiameter;
-                        break;
-                    case (int)Figures.Triangle:
-                        Console.Write("Введите значение стороны треугольника: ");
-                        double sideOfTriangle = double.Parse(Console.ReadLine());
-                        if (sideOfTriangle <= 0)
-                            throw new ArgumentException();
-                        squareOfFigure = (Math.Pow(sideOfTriangle, 2) * Math.Pow(3d, 2)) / 4d;
-                        perimeterOfFigure = sideOfTriangle * 3d;
-                        break;
-                    case (int)Figures.Rectangle:
-                        Console.Write("Введите значение длины прямоугольника: ");
-                        double lengthOfRectangle = double.Parse(Console.ReadLine());
-                        Console.Write("Введите значение ширины прямоугольника: ");
-                        double widthOfRectangle = double.Parse(Console.ReadLine());
-                        if (widthOfRectangle <= 0 || lengthOfRectangle <= 0)
-                            throw new ArgumentException();
-                        squareOfFigure = lengthOfRectangle * widthOfRectangle;
-                        perimeterOfFigure = (lengthOfRectangle + widthOfRectangle) * 2;
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
+                    double squareOfFigure = default;
+                    double perimeterOfFigure = default;
+                    Figures figureInput = (Figures)Enum.Parse(typeof(Figures), Console.ReadLine());
+                    switch (figureInput)
+                    {
+                        case 0:
+                            exitBool = true;
+                            break;
+                        case Figures.Circle:
+                            double circleDiameter;
+                            while (true)
+                            {
+                                Console.Write("Введите значение диаметра: ");
+                                if (double.TryParse(Console.ReadLine(), out circleDiameter) && circleDiameter > 0)
+                                {
+                                    break;
+                                }
+                                Console.WriteLine("Неподходящее значение!");
+                            }
+                            squareOfFigure = Math.PI * Math.Pow(circleDiameter / 2d, 2);
+                            perimeterOfFigure = Math.PI * circleDiameter;
+                            break;
+                        case Figures.Triangle:
+                            double sideOfTriangle;
+                            while (true)
+                            {
+                                Console.Write("Введите значение стороны треугольника: ");
+                                if (double.TryParse(Console.ReadLine(), out sideOfTriangle) && sideOfTriangle > 0)
+                                {
+                                    break;
+                                }
+                                Console.WriteLine("Неподходящее значение!");
+                            }
+                            squareOfFigure = (Math.Pow(sideOfTriangle, 2) * Math.Pow(3d, 2)) / 4d;
+                            perimeterOfFigure = sideOfTriangle * 3d;
+                            break;
+                        case Figures.Rectangle:
+                            double lengthOfRectangle;
+                            double widthOfRectangle;
+                            while (true)
+                            {
+                                Console.Write("Введите значение длины прямоугольника: ");
+                                if (double.TryParse(Console.ReadLine(), out lengthOfRectangle ) && lengthOfRectangle > 0)
+                                {
+                                    Console.Write("Введите значение ширины прямоугольника: ");
+                                    if (double.TryParse(Console.ReadLine(), out widthOfRectangle) && widthOfRectangle > 0)
+                                    {
+                                        break;
+                                    }
+                                }
+                                Console.WriteLine("Неподходящее значение!");
+                            }
+                            squareOfFigure = lengthOfRectangle * widthOfRectangle;
+                            perimeterOfFigure = (lengthOfRectangle + widthOfRectangle) * 2;
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                    if(squareOfFigure != 0 && perimeterOfFigure != 0)
+                    {
+                        Console.WriteLine($"Площадь поверхности фигуры: {squareOfFigure}");
+                        Console.WriteLine($"Периметр фигуры: {perimeterOfFigure}");
+
+                    }
                 }
-                Console.WriteLine($"Площадь поверхности фигуры: {squareOfFigure}");
-                Console.WriteLine($"Периметр фигуры: {perimeterOfFigure}");
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-                Console.WriteLine("Введен номер несуществующей фигуры.");
-                ChoiceOfFigure();
-            }
-            catch (ArgumentException)
-            {
-                Console.WriteLine("Заданное значение параметра невозможно для данной фигуры.");
-                ChoiceOfFigure();
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("Некорректный ввод числовых данных.");
-                ChoiceOfFigure();
-            }
-            catch(OverflowException)
-            {
-                Console.WriteLine("Введено запредельное число.");
-                ChoiceOfFigure();
+                catch (ArgumentOutOfRangeException)
+                {
+                    Console.WriteLine("Введен номер несуществующей фигуры.");
+                }
+                catch (ArgumentException)
+                {
+                    Console.WriteLine("Заданное значение параметра невозможно для данной фигуры.");
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Некорректный ввод числовых данных.");
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("Введено запредельное число.");
+                }
             }
         }
     }
