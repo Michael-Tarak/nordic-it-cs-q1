@@ -27,33 +27,39 @@ namespace HomeWork7
                 }
             }
             while (input != "exit");
-            FirstHomeWork();
         }
         static void FirstHomeWork()
         {
             string input;
             do
             {
-                Console.WriteLine("Введите строку из нескольких слов: Для выхода из программы введите \"exit\"");
-                input = Console.ReadLine();
-                input = input.Trim();
-                if (input == "exit")
-                    break;
-                var words = input.Split(" ", StringSplitOptions.RemoveEmptyEntries);
-                if (words.Length < 2)
+                try
                 {
-                    Console.WriteLine("Слишком мало слов :( Попробуйте еще раз");
-                    continue;
-                }
-                int counter = 0;
-                foreach (var word in words)
-                {
-                    if (word[0] == 'а')
+                    Console.WriteLine("Введите строку из нескольких слов. Для выхода из программы введите \"exit\"");
+                    input = Console.ReadLine();
+                    input = input.Trim();
+                    if (input == "exit")
+                        break;
+                    var words = input.Split(" ", StringSplitOptions.RemoveEmptyEntries);
+                    if (words.Length < 2)
                     {
-                        counter++;
+                        Console.WriteLine("Слишком мало слов :( Попробуйте еще раз");
+                        continue;
                     }
+                    int counter = 0;
+                    foreach (var word in words)
+                    {
+                        if (word[0].Equals('а') || word.Equals('А'))
+                        {
+                            counter++;
+                        }
+                    }
+                    Console.WriteLine($"Количество слов, начинающихся с буквы \'а\': {counter}");
                 }
-                Console.WriteLine($"Количество слов, начинающихся с буквы \'а\': {counter}");
+                catch (NullReferenceException)
+                {
+                    Console.WriteLine("Пустой ввод!");
+                }
             }
             while (true);
 
@@ -67,7 +73,7 @@ namespace HomeWork7
                 input = Console.ReadLine();
                 if (input == "exit")
                     break;
-                if( input == "")
+                if( string.IsNullOrWhiteSpace(input))
                 {
                     Console.WriteLine("Вы ввели пустую строку");
                     continue;

@@ -9,36 +9,21 @@ namespace ClassWork8
         {
             Console.InputEncoding = System.Text.Encoding.Unicode;
             Console.OutputEncoding = System.Text.Encoding.Unicode;
-            string input;
-            var firstList = new List<double>();
-            try
+            var countriesAndCapitals = new Dictionary<string, string>
             {
-                double sum = 0;
-                double result = 0;
-                while (true)
-                {
-                    Console.WriteLine("Введите число, для остановки введите stop");
-                    input = Console.ReadLine();
-                    if (input == "stop")
-                    {
-                        for (int i = 0; i < firstList.Count; i++)
-                        {
-                            sum += firstList[i];
-                        }
-                        result = sum / (double)firstList.Count;
-                        break;
-
-                    }
-                    firstList.Add(double.Parse(input));
-                }
-                Console.WriteLine($" Ответ: {result}");
-
-            }
-            catch (FormatException)
+                ["Россия"] = "Москва",
+                ["США"] = "Вашингтон",
+                ["Великобритания"] = "Лондон",
+                ["Румыния"] = "Бухарест",
+                ["Болгария"] = "София"
+            };
+            bool answer = true;
+            while(answer)
             {
-                Console.WriteLine("Ошибка ввода!");
+                var random = new Random();
+                var question = random.Next(0, countriesAndCapitals.Count);
+                Console.WriteLine($"Напишите столицу {countriesAndCapitals[question]}");
             }
-            
         }
     }
 }
