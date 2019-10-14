@@ -25,6 +25,7 @@ namespace ClassWork8
                         SecondClassWork();
                         break;
                     case "3":
+                        ThirdClassWork();
                         break;
                     default:
                         Console.WriteLine("Неправильный номер работы");
@@ -84,8 +85,8 @@ namespace ClassWork8
                 {
                     while(numbers.Count > 0)
                     {
-                        Console.WriteLine(Math.Sqrt(numbers.Dequeue()));
-                    }
+                        Console.WriteLine(Math.Sqrt(numbers.Dequeue())); //Тут вопрос: почему мне не выдает ошибку, ведь метод 
+                    }                                                    // double, а на ввод идет int?
                     continue;
                 }
                 if (input == "exit")
@@ -96,6 +97,36 @@ namespace ClassWork8
                 Console.WriteLine("Неправильное значение, либо несуществующая команда!");
             }
 
+        }
+        static void ThirdClassWork()
+        {
+            var plateStack = new Stack<bool> { };
+            var whileBreaker = false;
+            while(!whileBreaker)
+            {
+                Console.WriteLine("Введите команду wash, dry или exit");
+                var input = Console.ReadLine();
+                switch (input)
+                {
+                    case "wash":
+                        plateStack.Push(true);
+                        break;
+                    case "dry":
+                        if (plateStack.Count == 0)
+                        {
+                            Console.WriteLine("Стопка тарелок пуста!");
+                            break;
+                        }
+                        plateStack.Pop();
+                        break;
+                    case "exit":
+                        whileBreaker = true;
+                        break;
+                    default:
+                        break;
+                }
+                Console.WriteLine($"Количество тарелок в стопке - {plateStack.Count}");
+            }
         }
     }
 }
