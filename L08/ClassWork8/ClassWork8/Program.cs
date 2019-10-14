@@ -22,6 +22,7 @@ namespace ClassWork8
                         FirstClassWork();
                         break;
                     case "2":
+                        SecondClassWork();
                         break;
                     case "3":
                         break;
@@ -66,6 +67,35 @@ namespace ClassWork8
                     rightCounter++;
                 }
             }
+        }
+        static void SecondClassWork()
+        {
+            var numbers = new Queue<int> { };
+            while(true)
+            {
+                Console.WriteLine("Введите число, либо команду");
+                var input = Console.ReadLine();
+                if(Int32.TryParse(input, out int numberValue))
+                {
+                    numbers.Enqueue(numberValue);
+                    continue;
+                }
+                if (input == "run")
+                {
+                    while(numbers.Count > 0)
+                    {
+                        Console.WriteLine(Math.Sqrt(numbers.Dequeue()));
+                    }
+                    continue;
+                }
+                if (input == "exit")
+                {
+                    Console.WriteLine($"В очереди на квадрат осталось {numbers.Count} значений");
+                    break;
+                }
+                Console.WriteLine("Неправильное значение, либо несуществующая команда!");
+            }
+
         }
     }
 }
