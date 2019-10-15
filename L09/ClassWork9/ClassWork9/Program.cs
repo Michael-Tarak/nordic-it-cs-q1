@@ -26,7 +26,7 @@ namespace ClassWork9
             TimeSpan ts1 = timer1.Elapsed;
             Console.WriteLine(ts1);
             Stopwatch timer2 = new Stopwatch();
-            timer1.Start();
+            timer2.Start();
             BubbleSort(massive2);
             timer2.Stop();
             TimeSpan ts2 = timer2.Elapsed; 
