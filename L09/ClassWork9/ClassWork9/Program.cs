@@ -14,6 +14,11 @@ namespace ClassWork9
                 var randomizer = (new Random().Next(0,1000));
                 massive[i] = randomizer;
             }
+            var massive2 = new int[massive.Length];
+            for (int i = 0; i < massive2.Length; i++)
+            {
+                massive2[i] = massive[i];
+            }
             Stopwatch timer1 = new Stopwatch();
             timer1.Start();
             Array.Sort(massive);
@@ -22,7 +27,7 @@ namespace ClassWork9
             Console.WriteLine(ts1);
             Stopwatch timer2 = new Stopwatch();
             timer1.Start();
-            BubbleSort(massive);
+            BubbleSort(massive2);
             timer2.Stop();
             TimeSpan ts2 = timer2.Elapsed; 
             Console.WriteLine(ts2);
