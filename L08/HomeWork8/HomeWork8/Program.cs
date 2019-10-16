@@ -5,8 +5,6 @@ namespace HomeWork8
 {
     class Program
     {
-        static Stack<bool> squareBrakets = new Stack<bool> { };
-        static Stack<bool> circleBrakets = new Stack<bool> { };
 
         static void Main(string[] args)
         {
@@ -19,42 +17,49 @@ namespace HomeWork8
                 if (mainInput.ToLower() == "exit")
                     break;
                 Console.WriteLine(Qualifier(mainInput));
-                squareBrakets.Clear();
-                circleBrakets.Clear();
             }
         }
 
         private static bool Qualifier(string input)
         {
+            var Brakets = new Stack<string> { };
+            if (string.IsNullOrWhiteSpace(input))
+            {
+                Console.WriteLine("Пустой ввод!");
+                return false;
+            }
+            //var circleBrakets = new Stack<bool> { };
             foreach (var symbol in input)
             {
                 switch (symbol)
                 {
                     case '(':
-                        circleBrakets.Push(true);
+                        Brakets.Push("circle");
                             break;
                     case ')':
-                        if(circleBrakets.Count == 0)
+                        if(Brakets.Count == 0)
                             return false;
-                        circleBrakets.Pop();
+                        if (Brakets.Peek() != "circle")
+                            return false;
+                        Brakets.Pop();
                         break;
                     case '[':
-                        squareBrakets.Push(true);
+                        Brakets.Push("square");
                         break;
                     case ']':
-                        if (squareBrakets.Count == 0)
+                        if (Brakets.Count == 0)
                             return false;
-                        squareBrakets.Pop();
+                        if (Brakets.Peek() != "square")
+                            return false;
+
+                        Brakets.Pop();
                         break;
                     default:
                         Console.WriteLine("Присутсвует лишний символ!");
                         return false;
                 }
             }
-            if (squareBrakets.Count == 0 && circleBrakets.Count == 0)
-                return true;
-            else
-                return false;
+            return Brakets.Count == 0;
         }
     }
 }
