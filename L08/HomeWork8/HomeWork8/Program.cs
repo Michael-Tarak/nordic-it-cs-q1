@@ -16,6 +16,12 @@ namespace HomeWork8
                 var mainInput = Console.ReadLine();
                 if (mainInput.ToLower() == "exit")
                     break;
+                if (string.IsNullOrWhiteSpace(mainInput))
+                {
+                    Console.WriteLine("Пустой ввод!");
+                    continue;
+                }
+
                 Console.WriteLine(Qualifier(mainInput));
             }
         }
@@ -23,11 +29,6 @@ namespace HomeWork8
         private static bool Qualifier(string input)
         {
             var Brakets = new Stack<string> { };
-            if (string.IsNullOrWhiteSpace(input))
-            {
-                Console.WriteLine("Пустой ввод!");
-                return false;
-            }
             //var circleBrakets = new Stack<bool> { };
             foreach (var symbol in input)
             {
