@@ -8,7 +8,7 @@ namespace ClassWork9
     {
         static void Main(string[] args)
         {
-            var massive = new int[10000];
+            var massive = new int[100000];
             for (int i = 0; i < massive.Length; i++)
             {
                 var randomizer = (new Random().Next(0,1000));
