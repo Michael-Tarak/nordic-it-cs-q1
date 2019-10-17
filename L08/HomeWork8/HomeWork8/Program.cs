@@ -14,53 +14,52 @@ namespace HomeWork8
             {
                 Console.WriteLine("Введите строку, используя символы \"[\" , \"]\" , \"(\", \")\"");
                 var mainInput = Console.ReadLine();
-                if (mainInput.ToLower() == "exit")
-                    break;
                 if (string.IsNullOrWhiteSpace(mainInput))
                 {
                     Console.WriteLine("Пустой ввод!");
                     continue;
                 }
-
+                if (mainInput.ToLower() == "exit")
+                {
+                    break;
+                }
                 Console.WriteLine(Qualifier(mainInput));
             }
         }
 
         private static bool Qualifier(string input)
         {
-            var Brakets = new Stack<string> { };
-            //var circleBrakets = new Stack<bool> { };
+            var brakets = new Stack<char> { };
             foreach (var symbol in input)
             {
                 switch (symbol)
                 {
                     case '(':
-                        Brakets.Push("circle");
+                        brakets.Push('(');
                             break;
                     case ')':
-                        if(Brakets.Count == 0)
+                        if (brakets.Count == 0 || brakets.Peek() != '(')
+                        {
                             return false;
-                        if (Brakets.Peek() != "circle")
-                            return false;
-                        Brakets.Pop();
+                        }
+                        brakets.Pop();
                         break;
                     case '[':
-                        Brakets.Push("square");
+                        brakets.Push('[');
                         break;
                     case ']':
-                        if (Brakets.Count == 0)
+                        if (brakets.Count == 0 || brakets.Peek() != '[')
+                        {
                             return false;
-                        if (Brakets.Peek() != "square")
-                            return false;
-
-                        Brakets.Pop();
+                        }
+                        brakets.Pop();
                         break;
                     default:
                         Console.WriteLine("Присутсвует лишний символ!");
                         return false;
                 }
             }
-            return Brakets.Count == 0;
+            return brakets.Count == 0;
         }
     }
 }
