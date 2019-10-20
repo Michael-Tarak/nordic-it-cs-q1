@@ -32,31 +32,29 @@ namespace HomeWork8
             var brakets = new Stack<char> { };
             foreach (var symbol in input)
             {
-                switch (symbol)
+                
+                if (symbol == '(' || symbol == '[')
                 {
-                    case '(':
-                        brakets.Push('(');
-                            break;
-                    case ')':
-                        if (brakets.Count == 0 || brakets.Peek() != '(')
-                        {
-                            return false;
-                        }
-                        brakets.Pop();
-                        break;
-                    case '[':
-                        brakets.Push('[');
-                        break;
-                    case ']':
-                        if (brakets.Count == 0 || brakets.Peek() != '[')
-                        {
-                            return false;
-                        }
-                        brakets.Pop();
-                        break;
-                    default:
-                        Console.WriteLine("Присутсвует лишний символ!");
+                    brakets.Push(symbol);
+                }
+                else if (symbol == ')' || symbol == ']')
+                {
+                    if(brakets.Count == 0)
+                    {
                         return false;
+                    }
+                    bool circleBracketCheck = symbol == ')' && brakets.Peek() != '(';
+                    bool squareBracketCheck = symbol == ']' && brakets.Peek() != '[';
+                    if (circleBracketCheck || squareBracketCheck)
+                    {
+                        return false;
+                    }
+                    brakets.Pop();
+                }
+                else 
+                {
+                    Console.WriteLine("Присутсвует лишний символ!");
+                    return false;
                 }
             }
             return brakets.Count == 0;

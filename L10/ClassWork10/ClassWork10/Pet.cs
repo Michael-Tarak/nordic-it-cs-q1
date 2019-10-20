@@ -2,9 +2,16 @@
 {
     class Pet
     {
-        public static string Kind;
-        public static string Name;
-        public static char Sex;
-        public static int Age;
+        public string Kind;
+        public string Name;
+        public char Sex;
+        public int Age;
+        public string Description
+        {
+            get
+            {
+                return $"The pet kind {Kind}, name is {Name} age {Age} sex: {Sex}";
+            }
+        }
     }
 }
