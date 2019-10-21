@@ -35,6 +35,10 @@ namespace HomeWork10
             var people = new Person[3];
             for (int i = 0; i < people.Length; i++)
             {
+                people[i] = new Person();
+            }
+            for (int i = 0; i < people.Length; i++)
+            {
                 string inputName;
                 do
                 {
@@ -49,14 +53,15 @@ namespace HomeWork10
                 do
                 {
                     Console.Write($"Введите возраст {i + 1}го человека: ");
-                    int.TryParse(Console.ReadLine(), out inputAge);
-                    people[i].Age = inputAge;
-                } while (inputAge !=0);
+                    
+                } while (!int.TryParse(Console.ReadLine(), out inputAge));
+                people[i].Age = inputAge;
             }
             foreach(var person in people)
             {
                 Console.WriteLine(person.OutputInfo); 
             }
+            Console.ReadKey();
         }
     }
 }
