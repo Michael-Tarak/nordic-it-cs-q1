@@ -11,7 +11,7 @@ namespace ClassWork11
                 Name = "Alex",
                 Kind = "Lion",
                 Sex = 'M',
-                Age = 20
+                DateOfBirth = new DateTime(2018,6,20)
             };
             Console.WriteLine(pet1.Description);
             var pet2 = new Pet()
@@ -19,9 +19,11 @@ namespace ClassWork11
                 Name = "Morty",
                 Kind = "Zebra",
                 Sex = 'M',
-                Age = 19
+                DateOfBirth = new DateTime(2000,5,16)
             };
             Console.WriteLine(pet2.Description);
+            pet1.Display();
+            pet2.Display();
             Console.ReadKey();
         }
     }
