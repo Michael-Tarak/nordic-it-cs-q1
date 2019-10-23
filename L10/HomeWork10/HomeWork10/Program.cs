@@ -2,30 +2,6 @@
 
 namespace HomeWork10
 {
-    class Person
-    {
-        private int _age;
-        public string Name { get; set; }
-        public int Age
-        {
-            get
-            {
-                return _age;
-            }
-            set
-            {
-                if(value >= 0)
-                {
-                    _age = value;
-                }
-            }
-        }
-        public int AgeAfterFourYears
-            => _age + 4;
-
-        public string OutputInfo
-            => $"Имя:{Name}; возраст через 4 года: {AgeAfterFourYears} ";
-    }
     class Program
     {
         static void Main(string[] args)
@@ -36,26 +12,27 @@ namespace HomeWork10
             for (int i = 0; i < people.Length; i++)
             {
                 people[i] = new Person();
-            }
-            for (int i = 0; i < people.Length; i++)
-            {
-                string inputName;
-                do
+                while (true)
                 {
                     Console.Write($"Введите имя {i + 1}го человека: ");
-                    inputName = Console.ReadLine();
-                } while (string.IsNullOrWhiteSpace(inputName));
-                people[i].Name = inputName;
-            }
-            for (int i = 0; i < people.Length; i++)
-            { 
-                int inputAge;
-                do
+                    people[i].Name = Console.ReadLine();
+                    if (!string.IsNullOrWhiteSpace(people[i].Name))
+                    {
+                        break;
+                    }
+                    Console.WriteLine("Некорректный ввод!");
+                }
+                while (true)
                 {
                     Console.Write($"Введите возраст {i + 1}го человека: ");
-                    
-                } while (!int.TryParse(Console.ReadLine(), out inputAge));
-                people[i].Age = inputAge;
+                    int inputAge;
+                    if (int.TryParse(Console.ReadLine(), out inputAge) && inputAge >= 0)
+                    {
+                        people[i].Age = inputAge;
+                        break;
+                    }
+                    Console.WriteLine("Некорректный ввод!");
+                }
             }
             foreach(var person in people)
             {
