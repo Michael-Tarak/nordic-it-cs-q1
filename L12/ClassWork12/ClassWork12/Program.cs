@@ -6,22 +6,11 @@ namespace ClassWork12
     {
         static void Main(string[] args)
         {
-            var doc = new BaseDocument()
-            {
-                Title = "Title",
-                Number = "1337",
-                IssueDate = DateTime.Now
-            };
-            var passport = new Passport()
-            {
-                Title = "title",
-                Number = "42",
-                IssueDate = DateTime.Now,
-                Country = "Belgium",
-                PersonName = "Ivan"
-            };
+            var doc = new BaseDocument("License", "42", DateTimeOffset.Now);
+            var passport = new Passport("1337",DateTimeOffset.Now,"Russia", "Ivan");
             doc.WriteToConsole();
             passport.WriteToConsole();
+            Console.ReadKey();
         }
     }
 }
