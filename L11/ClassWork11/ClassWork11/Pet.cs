@@ -16,14 +16,20 @@ namespace ClassWork11
                 return (byte)Math.Floor(difference.TotalDays / 365);
             }
         }
-
+        public string ShortDescription =>
+            $"{Name} is a {Kind}";
         public string Description
         {
             get { return $"{Name} is a {Kind} ({Sex}) of {Age} years old"; }
         }
-        public void Display()
+        public void Display(bool isShortDescription)
         {
-            Console.WriteLine($"{Name} is a {Kind} ({Sex}) of {Age} years old");
+            if (isShortDescription)
+            {
+                Console.WriteLine(ShortDescription);
+            }
+            else
+            Console.WriteLine(Description);
         }
     }
 }

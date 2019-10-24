@@ -13,7 +13,6 @@ namespace ClassWork11
                 Sex = 'M',
                 DateOfBirth = new DateTime(2018,6,20)
             };
-            Console.WriteLine(pet1.Description);
             var pet2 = new Pet()
             {
                 Name = "Morty",
@@ -21,9 +20,8 @@ namespace ClassWork11
                 Sex = 'M',
                 DateOfBirth = new DateTime(2000,5,16)
             };
-            Console.WriteLine(pet2.Description);
-            pet1.Display();
-            pet2.Display();
+            pet1.Display(true);
+            pet2.Display(false);
             Console.ReadKey();
         }
     }
