@@ -8,7 +8,7 @@ namespace ClassWork12
         public DateTimeOffset IssueDate { get; set; }
         public string Description =>
             $"Title: {Title}, Number: {Number}, Issue Date: {IssueDate}";
-        public void WrieToConsole()
+        public void WriteToConsole()
         {
             Console.WriteLine(Description);
         }
@@ -19,7 +19,7 @@ namespace ClassWork12
         public string PersonName { get; set; }
         public new string Description =>
             $"{base.Description}, Country: {Country}, Person Name: {PersonName}";
-        public new void WrieToConsole()
+        public new void WriteToConsole()
         {
             Console.WriteLine(Description);
         }

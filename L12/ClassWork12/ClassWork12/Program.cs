@@ -20,8 +20,8 @@ namespace ClassWork12
                 Country = "Belgium",
                 PersonName = "Ivan"
             };
-            doc.WrieToConsole();
-            passport.WrieToConsole();
+            doc.WriteToConsole();
+            passport.WriteToConsole();
         }
     }
 }
