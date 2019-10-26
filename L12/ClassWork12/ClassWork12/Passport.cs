@@ -13,5 +13,9 @@ namespace ClassWork12
         public string PersonName { get; set; }
         public override string Description =>
             $"{base.Description}, Country: {Country}, Person Name: {PersonName}";
+        public void ChangeIssueDate(DateTimeOffset newIssueDate)
+        {
+            IssueDate = newIssueDate;
+        }
     }
 }
