@@ -12,20 +12,8 @@ namespace HomeWork11
         public string AlarmMessage { get; set; }
         public TimeSpan TimeToAlarm =>
             DateTime.Now - AlarmDate;
-        public bool IsOutdated
-        {
-            get
-            {
-                if (DateTime.Now - AlarmDate >= TimeSpan.Zero)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-        }
+        public bool IsOutdated =>
+            DateTime.Now - AlarmDate >= TimeSpan.Zero;
         public void WriteProperties()
         {
             Console.WriteLine($"AlarmDate : {AlarmDate}");

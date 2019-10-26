@@ -7,7 +7,7 @@ namespace ClassWork12
         static void Main(string[] args)
         {
             var doc = new BaseDocument("License", "42", DateTimeOffset.Now);
-            var passport = new Passport("1337",DateTimeOffset.Now,"Russia", "Ivan");
+            var passport = new Passport("1337", DateTimeOffset.Now,"Russia", "Ivan");
             doc.WriteToConsole();
             passport.WriteToConsole();
             Console.ReadKey();

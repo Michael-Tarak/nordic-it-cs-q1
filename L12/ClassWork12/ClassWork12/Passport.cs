@@ -4,7 +4,7 @@ namespace ClassWork12
     class Passport : BaseDocument
     {
         public Passport(string number, DateTimeOffset issueDate, string country, string personName)
-            :base ("Passport", number,issueDate)
+            :base ("Passport", number, issueDate)
         {
             Country = country;
             PersonName = personName;
