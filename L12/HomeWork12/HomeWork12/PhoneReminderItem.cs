@@ -11,11 +11,7 @@ namespace HomeWork12
         public  string PhoneNumber { get; set; }
         public override void WriteProperties()
         {
-            Console.WriteLine(typeof(PhoneReminderItem));
-            Console.WriteLine($"AlarmDate : {AlarmDate}");
-            Console.WriteLine($"AlarmMessage: {AlarmMessage}");
-            Console.WriteLine($"TimeToAlarm: {TimeToAlarm}");
-            Console.WriteLine($"IsOutdated: {IsOutdated}");
+            base.WriteProperties();
             Console.WriteLine($"PhoneNumber: {PhoneNumber}");
         }
     }

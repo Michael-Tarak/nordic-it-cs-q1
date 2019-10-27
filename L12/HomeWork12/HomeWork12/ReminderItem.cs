@@ -16,7 +16,7 @@ namespace HomeWork12
             DateTime.Now - AlarmDate >= TimeSpan.Zero;
         public virtual void WriteProperties()
         {
-            Console.WriteLine(typeof(ReminderItem));
+            Console.WriteLine(GetType());
             Console.WriteLine($"AlarmDate : {AlarmDate}");
             Console.WriteLine($"AlarmMessage: {AlarmMessage}");
             Console.WriteLine($"TimeToAlarm: {TimeToAlarm}");
