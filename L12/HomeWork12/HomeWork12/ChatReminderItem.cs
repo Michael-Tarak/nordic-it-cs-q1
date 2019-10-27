@@ -13,7 +13,11 @@ namespace HomeWork12
         public string ChatMessage { get; set; }
         public override void WriteProperties()
         {
-            base.WriteProperties();
+            Console.WriteLine(typeof(ChatReminderItem));
+            Console.WriteLine($"AlarmDate : {AlarmDate}");
+            Console.WriteLine($"AlarmMessage: {AlarmMessage}");
+            Console.WriteLine($"TimeToAlarm: {TimeToAlarm}");
+            Console.WriteLine($"IsOutdated: {IsOutdated}");
             Console.WriteLine($"ChatName: {ChatName}");
             Console.WriteLine($"ChatMessage: {ChatMessage}");
         }
