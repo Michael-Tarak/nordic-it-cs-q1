@@ -8,14 +8,14 @@ namespace HomeWork13
         public FileLogWriter(string path)
         {
             _path = path;
-            if(!File.Exists(path))
+            if (!File.Exists(path))
             {
                 File.Create(path);
             }
         }
         public void LogInfo(string message)
         {
-            using(StreamWriter sw = File.AppendText(_path))
+            using (StreamWriter sw = File.AppendText(_path))
             {
                 sw.WriteLine($"{DateTimeOffset.Now}\tInfo\t{message}");
             }
@@ -27,7 +27,7 @@ namespace HomeWork13
                 sw.WriteLine($"{DateTimeOffset.Now}\tWarning\t{message}");
             }
         }
-        public  void LogError(string message)
+        public void LogError(string message)
         {
             using (StreamWriter sw = File.AppendText(_path))
             {
