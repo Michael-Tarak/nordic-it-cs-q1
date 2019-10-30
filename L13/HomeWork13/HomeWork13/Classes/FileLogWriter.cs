@@ -2,7 +2,7 @@
 using System.IO;
 namespace HomeWork13
 {
-    class FileLogWriter : ILogWriter
+    class FileLogWriter : AbstractLogWriter, ILogWriter
     {
         protected readonly string _path;
         public FileLogWriter(string path)
@@ -14,25 +14,28 @@ namespace HomeWork13
                 fs.Close();
             }
         }
-        public void LogInfo(string message)
+        public override void LogInfo(string message)
         {
+            base.LogInfo(message);
             using (StreamWriter sw = File.AppendText(_path))
             {
-                sw.WriteLine($"{DateTimeOffset.Now}\tInfo\t{message}");
+                sw.WriteLine(WriterOutput);
             }
         }
-        public void LogWarning(string message)
+        public override void LogWarning(string message)
         {
+            base.LogWarning(message);
             using (StreamWriter sw = File.AppendText(_path))
             {
-                sw.WriteLine($"{DateTimeOffset.Now}\tWarning\t{message}");
+                sw.WriteLine(WriterOutput);
             }
         }
-        public void LogError(string message)
+        public override void LogError(string message)
         {
+            base.LogError(message);
             using (StreamWriter sw = File.AppendText(_path))
             {
-                sw.WriteLine($"{DateTimeOffset.Now}\tError\t{message}");
+                sw.WriteLine(WriterOutput);
             }
         }
     }

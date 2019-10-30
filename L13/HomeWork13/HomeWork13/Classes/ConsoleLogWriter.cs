@@ -1,19 +1,22 @@
 ﻿using System;
 namespace HomeWork13
 {
-    class ConsoleLogWriter : ILogWriter
+    class ConsoleLogWriter : AbstractLogWriter,ILogWriter
     {
-        public void LogInfo(string message)
+        public override void LogInfo(string message)
         {
-            Console.WriteLine($"{DateTimeOffset.Now}\tInfo\t{message}");
+            base.LogInfo(message);
+            Console.WriteLine(WriterOutput);
         }
-        public void LogWarning(string message)
+        public override void LogWarning(string message)
         {
-            Console.WriteLine($"{DateTimeOffset.Now}\tWarning\t{message}");
+            base.LogWarning(message);
+            Console.WriteLine(WriterOutput);
         }
-        public void LogError(string message)
+        public override void LogError(string message)
         {
-            Console.WriteLine($"{DateTimeOffset.Now}\tError\t{message}");
+            base.LogError(message);
+            Console.WriteLine(WriterOutput);
         }
 
     }
