@@ -10,7 +10,8 @@ namespace HomeWork13
             _path = path;
             if (!File.Exists(path))
             {
-                File.Create(path);
+                FileStream fs =  File.Create(path);
+                fs.Close();
             }
         }
         public void LogInfo(string message)

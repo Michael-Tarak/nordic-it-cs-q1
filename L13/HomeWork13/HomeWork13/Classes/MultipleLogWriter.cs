@@ -5,7 +5,6 @@ namespace HomeWork13
 {
     class MultipleLogWriter : ILogWriter
     {
-        protected readonly string _path;
         public ConsoleLogWriter CLW { get; set; }
         public FileLogWriter FLW { get; set; }
         public MultipleLogWriter(ConsoleLogWriter clw, FileLogWriter flw)
