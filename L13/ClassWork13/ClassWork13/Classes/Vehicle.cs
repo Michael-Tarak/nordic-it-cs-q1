@@ -1,7 +1,7 @@
 ﻿using System;
 namespace ClassWork13
 {
-     abstract class  Vehicle
+    abstract class  Vehicle : IHeightMovement
      {
         public int MaxHeight { get; set; }
         public int CurrentHeight { get; set; }
