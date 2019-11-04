@@ -8,7 +8,7 @@ namespace HomeWork13
         private ILogWriter[] interfaceLogWriter;
         public MultipleLogWriter(ConsoleLogWriter clw, FileLogWriter flw)
         {
-            interfaceLogWriter = new ILogWriter[2] { clw, flw };
+            interfaceLogWriter = new ILogWriter[] { clw, flw };
         }
         public override void LogInfo(string message)
         {
