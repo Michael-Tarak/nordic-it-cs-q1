@@ -1,21 +1,39 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace ClassWork14
 {
-    class ErrorList : IDisposable
+    class ErrorList : IDisposable, IEnumerable<string>
     {
         public string Category { get; }
-        public List  <string> ErrorListCount;
+        private List  <string> errorListCount;
         public ErrorList(string category, List<string> list)
         {
             Category = category;
-            ErrorListCount = list;
+            errorListCount = list;
+        }
+        public void Add(string errorMessage)
+        {
+            errorListCount.Add(errorMessage);
         }
         public void Dispose()
         {
-            ErrorListCount.Clear();
-            ErrorListCount = null;
+            if(errorListCount!=null)
+            {
+                errorListCount.Clear();
+                errorListCount = null;
+            }
+        }
+
+        public IEnumerator<string> GetEnumerator()
+        {
+            return errorListCount.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this.GetEnumerator();
         }
     }
 }

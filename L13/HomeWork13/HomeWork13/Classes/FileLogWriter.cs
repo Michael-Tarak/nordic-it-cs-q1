@@ -16,26 +16,23 @@ namespace HomeWork13
         }
         public override void LogInfo(string message)
         {
-            base.LogInfo(message);
             using (StreamWriter sw = File.AppendText(_path))
             {
-                sw.WriteLine(WriterOutput);
+                sw.WriteLine(LogOutput("Info", message));
             }
         }
         public override void LogWarning(string message)
         {
-            base.LogWarning(message);
             using (StreamWriter sw = File.AppendText(_path))
             {
-                sw.WriteLine(WriterOutput);
+                sw.WriteLine(LogOutput("Warning", message));
             }
         }
         public override void LogError(string message)
         {
-            base.LogError(message);
             using (StreamWriter sw = File.AppendText(_path))
             {
-                sw.WriteLine(WriterOutput);
+                sw.WriteLine(LogOutput("Error", message));
             }
         }
     }

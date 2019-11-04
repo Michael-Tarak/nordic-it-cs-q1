@@ -1,22 +1,19 @@
 ﻿using System;
 namespace HomeWork13
 {
-    class ConsoleLogWriter : AbstractLogWriter,ILogWriter
+    class ConsoleLogWriter : AbstractLogWriter, ILogWriter
     {
         public override void LogInfo(string message)
         {
-            base.LogInfo(message);
-            Console.WriteLine(WriterOutput);
+            Console.WriteLine(LogOutput("Info", message));
         }
         public override void LogWarning(string message)
         {
-            base.LogWarning(message);
-            Console.WriteLine(WriterOutput);
+            Console.WriteLine(LogOutput("Warning", message));
         }
         public override void LogError(string message)
         {
-            base.LogError(message);
-            Console.WriteLine(WriterOutput);
+            Console.WriteLine(LogOutput("Error", message));
         }
 
     }

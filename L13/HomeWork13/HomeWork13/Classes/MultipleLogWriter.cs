@@ -3,30 +3,33 @@ using System.IO;
 
 namespace HomeWork13
 {
-    class MultipleLogWriter : ILogWriter
+    class MultipleLogWriter :AbstractLogWriter, ILogWriter
     {
-        public ConsoleLogWriter CLW { get; set; }
-        public FileLogWriter FLW { get; set; }
+        private ILogWriter[] interfaceLogWriter;
         public MultipleLogWriter(ConsoleLogWriter clw, FileLogWriter flw)
         {
-            CLW = clw;
-            FLW = flw;
+            interfaceLogWriter = new ILogWriter[2] { clw, flw };
         }
-        public void LogInfo(string message)
+        public override void LogInfo(string message)
         {
-            CLW.LogInfo(message);
-            FLW.LogInfo(message);
+            foreach (var writer in interfaceLogWriter)
+            {
+                writer.LogInfo(message);
+            }
         }
-        public void LogWarning(string message)
+        public override void LogWarning(string message)
         {
-            CLW.LogWarning(message);
-            FLW.LogWarning(message);
+            foreach (var writer in interfaceLogWriter)
+            {
+                writer.LogWarning(message);
+            }
         }
-        public void LogError(string message)
+        public override void LogError(string message)
         {
-            CLW.LogError(message);
-            FLW.LogError(message);
+            foreach (var writer in interfaceLogWriter)
+            {
+                writer.LogError(message);
+            }
         }
-
     }
 }

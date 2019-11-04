@@ -6,20 +6,12 @@ namespace HomeWork13
 {
     abstract class AbstractLogWriter :ILogWriter
     {
-        protected string WriterOutput { get; set; }
-        public virtual  void LogInfo(string message)
+        protected  string LogOutput(string typeOfLog, string message)
         {
-            WriterOutput = $"{DateTimeOffset.Now}\tInfo\t{message}";
+            return $"{DateTimeOffset.Now}\t{typeOfLog}\t{message}";
         }
-        public virtual void LogWarning(string message)
-        {
-            WriterOutput = $"{DateTimeOffset.Now}\tWarning\t{message}";
-        }
-        public virtual void LogError(string message)
-        {
-            WriterOutput = $"{DateTimeOffset.Now}\tError\t{message}";
-        }
-
-
+        public abstract void LogInfo(string message);
+        public abstract void LogWarning(string message);
+        public abstract void LogError(string message);
     }
 }
