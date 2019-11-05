@@ -1,7 +1,4 @@
-﻿using System;
-using System.IO;
-
-namespace HomeWork13
+﻿namespace HomeWork13
 {
     class MultipleLogWriter :AbstractLogWriter, ILogWriter
     {
