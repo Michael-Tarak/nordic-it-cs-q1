@@ -2,31 +2,33 @@
 
 namespace ClassWork15
 {
-    class Account<T>
+    public sealed class Circle
     {
-        public T Id { get; private set; }
-        public string Name { get; private set; }
-        public Account ( T id, string name)
+        private double _radius;
+        public Circle(double radius)
         {
-            Id = id;
-            Name = name;
+            _radius = radius;
         }
-        public void WriteProperties()
+        public double Calculate(Func<double,double> operation)
         {
-            Console.WriteLine($"{nameof(Id)}: {Id}\n" +
-                $"{nameof(Name)}: {Name}");
+            return operation(_radius);
         }
     }
     class Program
     {
         static void Main(string[] args)
         {
-            var accountInteger = new Account<int>(1, "John");
-            var accountString = new Account<string>("2", "John");
-            var accountGuid = new Account<Guid>(Guid.NewGuid(), "John");
-            accountInteger.WriteProperties();
-            accountString.WriteProperties();
-            accountGuid.WriteProperties();
+            Circle circle1 = new Circle(1.5);
+            Console.WriteLine($"Perimeter is: {circle1.Calculate(PerimeterCalculator)}");
+            Console.WriteLine($"Square is: { circle1.Calculate(SquareCalculator)}");
+        }
+        public static double PerimeterCalculator(double radius)
+        {
+            return 2*radius*Math.PI;
+        }
+        public static double SquareCalculator(double radius)
+        {
+            return Math.PI*radius*radius;
         }
     }
 }
