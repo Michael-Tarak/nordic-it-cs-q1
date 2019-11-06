@@ -3,18 +3,9 @@ namespace HomeWork13
 {
     class ConsoleLogWriter : AbstractLogWriter, ILogWriter
     {
-        public override void LogInfo(string message)
+        protected override void WriteMessage(string line)
         {
-            Console.WriteLine(LogOutput("Info", message));
+            Console.WriteLine(line);
         }
-        public override void LogWarning(string message)
-        {
-            Console.WriteLine(LogOutput("Warning", message));
-        }
-        public override void LogError(string message)
-        {
-            Console.WriteLine(LogOutput("Error", message));
-        }
-
     }
 }

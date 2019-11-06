@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 namespace HomeWork13
 {
     class FileLogWriter : AbstractLogWriter, ILogWriter
@@ -8,32 +7,11 @@ namespace HomeWork13
         public FileLogWriter(string path)
         {
             _path = path;
-            if (!File.Exists(path))
-            {
-                FileStream fs =  File.Create(path);
-                fs.Close();
-            }
         }
-        public override void LogInfo(string message)
+
+        protected override void WriteMessage(string line)
         {
-            using (StreamWriter sw = File.AppendText(_path))
-            {
-                sw.WriteLine(LogOutput("Info", message));
-            }
-        }
-        public override void LogWarning(string message)
-        {
-            using (StreamWriter sw = File.AppendText(_path))
-            {
-                sw.WriteLine(LogOutput("Warning", message));
-            }
-        }
-        public override void LogError(string message)
-        {
-            using (StreamWriter sw = File.AppendText(_path))
-            {
-                sw.WriteLine(LogOutput("Error", message));
-            }
+            File.AppendAllText(_path, line);
         }
     }
 }

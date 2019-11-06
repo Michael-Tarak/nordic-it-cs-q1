@@ -1,29 +1,29 @@
 ﻿namespace HomeWork13
 {
-    class MultipleLogWriter :AbstractLogWriter, ILogWriter
+    class MultipleLogWriter : ILogWriter
     {
-        private ILogWriter[] interfaceLogWriter;
-        public MultipleLogWriter(ConsoleLogWriter clw, FileLogWriter flw)
+        private ILogWriter[] _multipleLogWriter;
+        public MultipleLogWriter(params ILogWriter[] writer)
         {
-            interfaceLogWriter = new ILogWriter[] { clw, flw };
+            _multipleLogWriter = writer;
         }
-        public override void LogInfo(string message)
+        public void LogInfo(string message)
         {
-            foreach (var writer in interfaceLogWriter)
+            foreach (var writer in _multipleLogWriter)
             {
                 writer.LogInfo(message);
             }
         }
-        public override void LogWarning(string message)
+        public void LogWarning(string message)
         {
-            foreach (var writer in interfaceLogWriter)
+            foreach (var writer in _multipleLogWriter)
             {
                 writer.LogWarning(message);
             }
         }
-        public override void LogError(string message)
+        public void LogError(string message)
         {
-            foreach (var writer in interfaceLogWriter)
+            foreach (var writer in _multipleLogWriter)
             {
                 writer.LogError(message);
             }

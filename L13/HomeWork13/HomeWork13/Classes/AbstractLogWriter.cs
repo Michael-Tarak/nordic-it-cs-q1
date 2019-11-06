@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace HomeWork13
 {
@@ -10,8 +8,23 @@ namespace HomeWork13
         {
             return $"{DateTimeOffset.Now}\t{typeOfLog}\t{message}";
         }
-        public abstract void LogInfo(string message);
-        public abstract void LogWarning(string message);
-        public abstract void LogError(string message);
+        protected void LogMessage(string message, string type)
+        {
+            WriteMessage(LogOutput(message, type));
+        }
+        public void LogInfo(string message)
+        {
+            LogMessage(message, "Info");
+        }
+        public void LogWarning(string message)
+        {
+            LogMessage(message, "Warning");
+
+        }
+        public void LogError(string message)
+        {
+            LogMessage(message, "Error");
+        }
+        protected abstract void WriteMessage(string line);
     }
 }
