@@ -16,12 +16,11 @@ namespace ClassWork16
     }
     class Program
     {
-        delegate double Calculation(double radius);
         static void Main(string[] args)
         {
             Circle circle1 = new Circle(1.5);
-            Calculation square = (x) => Math.PI * x * x;
-            Calculation perimeter = (x) => 2 * x * Math.PI;
+            Func<double,double> square = (x) => Math.PI * x * x;
+            Func<double,double> perimeter = (x) => 2 * x * Math.PI;
             Console.WriteLine(circle1.Calculate(square));
             Console.WriteLine(circle1.Calculate(perimeter));
         }
