@@ -19,5 +19,4 @@ namespace Calculator.Operations
             return Math.PI * radius * radius;
         }
     }
-
 }
