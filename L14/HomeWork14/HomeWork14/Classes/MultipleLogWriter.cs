@@ -8,9 +8,8 @@
         {
             _multipleLogWriter = writer;
         }
-        public static MultipleLogWriter GetInstance() =>
-            instance ?? (instance = new MultipleLogWriter());
-
+        public static MultipleLogWriter GetInstance(params ILogWriter[] writers) =>
+            instance ?? (instance = new MultipleLogWriter(writers));
         public void LogInfo(string message)
         {
             foreach (var writer in _multipleLogWriter)

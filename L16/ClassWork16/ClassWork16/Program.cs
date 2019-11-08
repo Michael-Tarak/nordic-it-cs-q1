@@ -9,7 +9,7 @@ namespace ClassWork16
         static void Main(string[] args)
         {
             Circle circle1 = new Circle(10);
-            var calc = new CircleOperation(circle1);
+            var calc = new CircleCalculation(circle1);
         }
         
     }

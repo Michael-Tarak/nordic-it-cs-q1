@@ -3,7 +3,7 @@ using Calculator.Figures;
 
 namespace Calculator.Operations
 {
-    class CircleCalculation
+    public class CircleCalculation
     {
         public CircleCalculation(Circle circle)
         {
