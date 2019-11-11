@@ -9,11 +9,13 @@ namespace HomeWork14
         {
             Path = path;
         }
-        public static FileLogWriter GetInstance(string path) =>
-            instance ?? (instance = new FileLogWriter(path));
+        public static FileLogWriter GetInstance()
+        {
+            return instance ?? (instance = new FileLogWriter(path));
+        }
 
 
-        protected override void WriteMessage(string line)
+    protected override void WriteMessage(string line)
         {
             File.AppendAllText(Path, line);
         }

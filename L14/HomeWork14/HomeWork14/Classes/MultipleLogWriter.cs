@@ -2,14 +2,11 @@
 {
     class MultipleLogWriter : ILogWriter
     {
-        private static MultipleLogWriter instance;
         private ILogWriter[] _multipleLogWriter;
-        private MultipleLogWriter(params ILogWriter[] writer)
+        public MultipleLogWriter(params ILogWriter[] writer)
         {
             _multipleLogWriter = writer;
         }
-        public static MultipleLogWriter GetInstance(params ILogWriter[] writers) =>
-            instance ?? (instance = new MultipleLogWriter(writers));
         public void LogInfo(string message)
         {
             foreach (var writer in _multipleLogWriter)
