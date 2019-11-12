@@ -3,18 +3,17 @@ namespace HomeWork14
 {
     class FileLogWriter : AbstractLogWriter, ILogWriter
     {
-        protected readonly string Path;
-        private static FileLogWriter instance;
-        private FileLogWriter(string path)
+        public string Path = "log.txt";
+        private static FileLogWriter _instance;
+        public static FileLogWriter Instance
         {
-            Path = path;
+            get
+            {
+                return _instance ?? (_instance = new FileLogWriter());
+            }
         }
-        public static FileLogWriter GetInstance()
-        {
-            return instance ?? (instance = new FileLogWriter(path));
-        }
-
-
+        private FileLogWriter()
+        { }
     protected override void WriteMessage(string line)
         {
             File.AppendAllText(Path, line);
