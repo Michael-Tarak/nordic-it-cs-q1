@@ -8,7 +8,7 @@ namespace HomeWork14
         {
             var fileLogWriter = FileLogWriter.Instance;
             var consoleLogWriter = ConsoleLogWriter.Instance;
-            fileLogWriter.Path = "newLog.txt";
+            FileLogWriter.FileLogPath = "newLog.txt";
             fileLogWriter.LogInfo("Some info");
             fileLogWriter.LogWarning("warning stuff");
             fileLogWriter.LogError("that\'s a wrong numba!");

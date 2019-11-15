@@ -3,7 +3,21 @@ namespace HomeWork14
 {
     class FileLogWriter : AbstractLogWriter, ILogWriter
     {
-        public string Path = "log.txt";
+        private static string _fileLogPath = "";
+        public static string FileLogPath
+        {
+            get
+            {
+                return _fileLogPath;
+            }
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    _fileLogPath = value;
+                }
+            }
+        }
         private static FileLogWriter _instance;
         public static FileLogWriter Instance
         {
@@ -16,7 +30,7 @@ namespace HomeWork14
         { }
     protected override void WriteMessage(string line)
         {
-            File.AppendAllText(Path, line);
+            File.AppendAllText(_fileLogPath, line);
         }
     }
 }
