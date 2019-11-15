@@ -3,7 +3,7 @@ namespace HomeWork14
 {
     class FileLogWriter : AbstractLogWriter, ILogWriter
     {
-        private static string _fileLogPath = "";
+        private static string _fileLogPath = "log.txt";
         public static string FileLogPath
         {
             get

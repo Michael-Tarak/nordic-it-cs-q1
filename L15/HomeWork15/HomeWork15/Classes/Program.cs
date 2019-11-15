@@ -13,10 +13,14 @@
             consoleLogWriter.LogInfo("Some info");
             consoleLogWriter.LogWarning("warning stuff");
             consoleLogWriter.LogError("that\'s a wrong numba!");
-            //var multiLogWriter = logWriterFactory.GetLogWriter<MultipleLogWriter>(consoleLogWriter, fileLogWriter);
-            //multiLogWriter.LogInfo("Some different info");
-            //multiLogWriter.LogWarning("warning other stuff");
-            //multiLogWriter.LogError("that\'s a wrong number!");
+            var someLogs = new ILogWriter[]
+            {
+                consoleLogWriter, fileLogWriter
+            };
+            var multiLogWriter = logWriterFactory.GetLogWriter<MultipleLogWriter>(someLogs);
+            multiLogWriter.LogInfo("Some different info");
+            multiLogWriter.LogWarning("warning other stuff");
+            multiLogWriter.LogError("that\'s a wrong number!");
         }
     }
 }

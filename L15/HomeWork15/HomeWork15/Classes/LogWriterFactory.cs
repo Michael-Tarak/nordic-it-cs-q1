@@ -24,8 +24,7 @@ namespace HomeWork15
             }
             else if(typeof(T) == typeof(MultipleLogWriter))
             {
-                
-                return new MultipleLogWriter((ILogWriter)parameters);
+                return new MultipleLogWriter((ILogWriter[])parameters);
             }
             else
             {
