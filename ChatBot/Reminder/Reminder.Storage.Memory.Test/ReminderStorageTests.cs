@@ -20,16 +20,26 @@ namespace Reminder.Storage.Memory.Test
         [Test]
         public void WhenCreate_IfNullSpecified_ShouldThrowException()
         {
+            //Arrange
             var storage = new ReminderStorage();
+            //Act
+            //Assert
             Assert.Catch<ArgumentNullException>(() =>
             storage.Create(null));
         }
-        public void WhenCreate_IfExistsElementWithKey_ShouldThrowException()
+        [Test]
+        public void WhenCreate_IfExistElementWithKey_ShouldThrowException()
         {
-            var item = new ReminderItem(Guid.NewGuid(), "112", "Some text", DateTimeOffset.Now);
+            //Arrange
+            var item = new ReminderItem(
+                Guid.NewGuid(),
+                "123",
+                "Some text",
+                DateTimeOffset.Now);
             var storage = new ReminderStorage(item);
+            //Assert
             Assert.Catch<ArgumentException>(() =>
-                storage.Create(null));
+                storage.Create(item));
 
         }
 
