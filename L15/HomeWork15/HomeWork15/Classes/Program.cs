@@ -4,9 +4,8 @@
     {
         static void Main(string[] args)
         {
-            var logWriterFactory = LogWriterFactory.GetInstance();
-            var fileLogWriter = logWriterFactory.GetLogWriter<FileLogWriter>("log.txt");
-            var consoleLogWriter = logWriterFactory.GetLogWriter<ConsoleLogWriter>();
+            var fileLogWriter = LogWriterFactory.Instance.GetLogWriter<FileLogWriter>("log.txt");
+            var consoleLogWriter = LogWriterFactory.Instance.GetLogWriter<ConsoleLogWriter>();
             fileLogWriter.LogInfo("Some info");
             fileLogWriter.LogWarning("warning stuff");
             fileLogWriter.LogError("that\'s a wrong numba!");
@@ -17,7 +16,7 @@
             {
                 consoleLogWriter, fileLogWriter
             };
-            var multiLogWriter = logWriterFactory.GetLogWriter<MultipleLogWriter>(someLogs);
+            var multiLogWriter = LogWriterFactory.Instance.GetLogWriter<MultipleLogWriter>(someLogs);
             multiLogWriter.LogInfo("Some different info");
             multiLogWriter.LogWarning("warning other stuff");
             multiLogWriter.LogError("that\'s a wrong number!");

@@ -3,11 +3,14 @@ namespace HomeWork15
 {
     class LogWriterFactory
     {
-        private static LogWriterFactory instance;
+        private static LogWriterFactory _instance;
+        public static LogWriterFactory Instance
+        {
+            get =>
+                _instance ?? (_instance = new LogWriterFactory());
+        }
         private LogWriterFactory()
         {}
-        public static LogWriterFactory GetInstance() =>
-            instance ?? (instance = new LogWriterFactory());
         public ILogWriter GetLogWriter<T>(object parameters = null) where T : ILogWriter
         {
             if(typeof(T) == typeof(ConsoleLogWriter))
@@ -18,17 +21,17 @@ namespace HomeWork15
             {
                 if(parameters == null)
                 {
-                    throw new InvalidOperationException();
+                    throw new ArgumentException();
                 }
                 return new FileLogWriter((string)parameters);
             }
-            else if(typeof(T) == typeof(MultipleLogWriter))
-            {
-                return new MultipleLogWriter((ILogWriter[])parameters);
-            }
             else
             {
-                throw new InvalidOperationException();
+                if (parameters == null)
+                {
+                    throw new ArgumentException();
+                }
+                return new MultipleLogWriter((ILogWriter[])parameters);
             }
         }
     }
