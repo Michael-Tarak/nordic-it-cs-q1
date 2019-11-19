@@ -49,7 +49,5 @@ namespace Reminder.Storage.Memory.Test
                     default)
                 );
         }
-
-
     }
 }

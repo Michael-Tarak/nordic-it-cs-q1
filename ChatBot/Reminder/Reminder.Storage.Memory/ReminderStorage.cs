@@ -28,23 +28,38 @@ namespace Reminder.Storage.Memory
             _map[item.Id] = item;
         }
 
-        public List<ReminderItem> FindByDateTime(DateTimeOffset datetime)
+        public List<ReminderItem> FindByDateTime(DateTimeOffset dateTime)
         {
-            throw new NotImplementedException();
-        }
+            var list = new List<ReminderItem>();
 
+            foreach (var item in _map)
+            {
+                if (item.Value.MessageDate == dateTime)
+                {
+                    list.Add(item.Value);
+                }
+            }
+            return list;
+        }
         public ReminderItem FindById(Guid id)
         {
-            if(!_map.ContainsKey(id))
+            if (!_map.ContainsKey(id))
             {
-                throw new ArgumentException($"Не найден элемент с ключом {id}", nameof(id));
+                throw new ArgumentException($"Не найден элемент с ключем {id}", nameof(id));
             }
             return _map[id];
-        }
 
+        }
         public void Update(ReminderItem item)
         {
-            throw new NotImplementedException();
+            if (!_map.ContainsKey(item.Id))
+            {
+                throw new ArgumentException($"Не найден элемент с ключем {item.Id}", nameof(item.Id));
+            }
+            else
+            {
+                _map[item.Id] = item;
+            }
         }
     }
 }
