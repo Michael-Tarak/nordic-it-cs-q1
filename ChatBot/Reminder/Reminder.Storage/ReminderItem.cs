@@ -45,5 +45,14 @@ namespace Reminder.Storage
             MessageDate = messageDate;
             Status = status;
         }
+        public ReminderItem ReadyToSend()
+        {
+            if(Status != ReminderItemStatus.Created)
+            {
+                throw new InvalidOperationException("Некорректный статус");
+            }
+            Status = ReminderItemStatus.Ready;
+            return this;
+        }
     }
 }

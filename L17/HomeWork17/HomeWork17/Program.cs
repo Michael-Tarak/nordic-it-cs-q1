@@ -8,13 +8,9 @@ namespace HomeWork17
             var writer = new FileWriterWithProgress();
             writer.WritingPerformed += OnWritingPerformed;
             writer.WritingCompleted += OnWritingCompleted;
-            var info = new byte[100];
-            for (int i = 0; i < info.Length; i++)
-            {
-                var random = new Random();
-                info[i] = (byte)random.Next(0,255);
-            }
-                writer.WriteBytes("file1.txt", info, 0.05f);
+            var info = new byte[10000];
+            new Random().NextBytes(info);
+            writer.WriteBytes("file1.txt", info, 0.07f);
         }
         private static void OnWritingPerformed(object sender, WritingPerformedEventArgs e)
         {

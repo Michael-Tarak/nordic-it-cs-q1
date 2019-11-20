@@ -54,6 +54,48 @@ namespace Reminder.Storage.Memory.Test
             Assert.Catch<ArgumentException>(()=>
                 storage.Update(item));
         }
-
+        [Test]
+        public void WhenFindByDateTime_IfDateTimeIsDefault_ThrowException()
+        {
+            var reminderStorage = new ReminderStorage(); 
+            Assert.Catch<ArgumentException>(()=>
+                reminderStorage.FindBy(default));
+        }
+        [Test]
+        public void WhenFindByDateTime_IsSpecifiedDateTime_ShouldFilterByIt()
+        {
+            var storage = new ReminderStorage(
+                CreateReminderItem(messageDate: DateTimeOffset.Parse("12.11.2019 14:28:00.00"))
+                );
+            var result = storage.FindBy(
+                DateTimeOffset.Parse("12.11.2019 14:28:00.00")
+                );
+            Assert.IsNotEmpty(result);
+        }
+        private ReminderItem CreateReminderItem(
+            Guid? id = default,
+            string contactId = default,
+            string message = default,
+            DateTimeOffset? messageDate = default
+            )
+        {
+            if(!id.HasValue)
+            {
+                id = Guid.NewGuid();
+            }
+            if(contactId == null)
+            {
+                contactId = "123";
+            }
+            if(message == null)
+            {
+                message = "Some text";
+            }
+            if(!messageDate.HasValue)
+            {
+                messageDate = DateTimeOffset.UtcNow;
+            }
+            return new ReminderItem(id.Value, contactId, message, messageDate.Value);
+        }
     }
 }

@@ -28,18 +28,20 @@ namespace Reminder.Storage.Memory
             _map[item.Id] = item;
         }
 
-        public List<ReminderItem> FindByDateTime(DateTimeOffset dateTime)
+        public List<ReminderItem> FindBy(ReminderItemFilter filter)
         {
-            var list = new List<ReminderItem>();
-
-            foreach (var item in _map)
+            if(filter == null)
             {
-                if (item.Value.MessageDate == dateTime)
-                {
-                    list.Add(item.Value);
-                }
+                throw new ArgumentNullException(nameof(filter));
             }
-            return list;
+            if(filter.Status.HasValue)
+            {
+
+            }
+            if(filter.DateTime.HasValue)
+            {
+
+            }
         }
         public ReminderItem FindById(Guid id)
         {

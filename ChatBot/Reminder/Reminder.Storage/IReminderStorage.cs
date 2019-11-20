@@ -30,6 +30,6 @@ namespace Reminder.Storage
         /// </summary>
         /// <param name="datetime">Дата</param>
         /// <returns> Коллекция дат </returns>
-        List<ReminderItem> FindByDateTime(DateTimeOffset datetime);
+        List<ReminderItem> FindBy(ReminderItemFilter filter);
     }
 }
