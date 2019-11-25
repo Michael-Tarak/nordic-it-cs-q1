@@ -26,9 +26,9 @@ namespace Reminder.Storage
         /// <returns>Найденный элемент</returns>
         ReminderItem FindById(Guid id);
         /// <summary>
-        /// Возвращает все элементы <see cref="ReminderItem"> не позднее указанной даты
+        /// Возвращает все элементы <see cref="ReminderItem"> по фильтру
         /// </summary>
-        /// <param name="datetime">Дата</param>
+        /// <param name="filter">Параметры фильтрации</param>
         /// <returns> Коллекция дат </returns>
         List<ReminderItem> FindBy(ReminderItemFilter filter);
     }
