@@ -19,7 +19,7 @@ namespace HomeWork17
                     $"{persentageToFireEvent}(значение должно быть в пределах от 0 до 1)!",
                     nameof(persentageToFireEvent));
             }
-            using var fileStream = new FileStream(fileName, FileMode.Create);
+            using var fileStream = File.OpenWrite(fileName);
             float percentCounter = persentageToFireEvent;
             for (int i = 0; i < data.Length; i++)
             {
