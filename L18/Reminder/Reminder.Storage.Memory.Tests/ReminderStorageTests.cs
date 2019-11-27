@@ -79,14 +79,26 @@ namespace Reminder.Storage.Memory.Tests
         }
 
         [Test]
+        public void WhenUpdate_IfExistsElementWithKey_ShouldUpdateReminderItem()
+        {
+            //Arrange
+            var item = CreateReminderItem(message: "old");
+            var storage = new ReminderStorage(item);
+            var updateItem = CreateReminderItem(id: item.Id, message: "updated");
+
+            //Act
+            storage.Update(updateItem);
+            var result = "updated";
+
+            //Assert
+            Assert.AreEqual(result, storage.FindById(item.Id).Message);
+        }
+
+        [Test]
         public void WhenUpdate_IfNotExistElementWithKey_ShouldThrowException()
         {
             //Arrange
-            var item = new ReminderItem(
-                Guid.NewGuid(),
-                "123",
-                "Some text",
-                DateTimeOffset.Now);
+            var item = CreateReminderItem();
             var storage = new ReminderStorage();
 
             //Act-Assert
