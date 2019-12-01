@@ -42,10 +42,6 @@ namespace Reminder.Storage.Memory
             {
                 list.Add(item.Value);
             }
-            if(list.Count < 1)
-            {
-                throw new ArgumentException("По данной дате записей нет", nameof(dateTime));
-            }
             return list;
         }
 

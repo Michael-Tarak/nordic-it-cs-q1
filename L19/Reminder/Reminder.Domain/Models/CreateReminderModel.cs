@@ -13,7 +13,19 @@ namespace Reminder.Domain.Models
 			string message,
 			DateTimeOffset datetime)
 		{
-			ContactId = contactId;
+            if( string.IsNullOrWhiteSpace(contactId))
+            {
+                throw new ArgumentNullException("Не указан контакт", nameof(contactId));
+            }
+            if (string.IsNullOrWhiteSpace(message))
+            {
+                throw new ArgumentNullException("Сообщение пустое", nameof(message));
+            }
+            if (datetime == default)
+            {
+                throw new ArgumentNullException("Указана неверная дата", nameof(datetime));
+            }
+            ContactId = contactId;
 			Message = message;
 			Datetime = datetime;
 		}

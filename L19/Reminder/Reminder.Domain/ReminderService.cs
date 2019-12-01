@@ -30,6 +30,10 @@ namespace Reminder.Domain
 
 		public void Create(CreateReminderModel model)
 		{
+            if(model == null)
+            {
+                throw new ArgumentNullException("Пустой аргумент", nameof(model));
+            }
 			var item = new ReminderItem(
 				Guid.NewGuid(),
 				model.ContactId,
@@ -80,7 +84,7 @@ namespace Reminder.Domain
 		private void OnItemFailed(ReminderItem item)
 		{
 			_storage.Update(item.Failed());
-			ItemSent?.Invoke(this, EventArgs.Empty);
+			ItemFailed?.Invoke(this, EventArgs.Empty);
 		}
 	}
 }
