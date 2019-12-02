@@ -17,6 +17,10 @@ namespace Reminder.Domain
 
 		public ReminderService(IReminderStorage storage)
 		{
+            if(storage == null)
+            {
+                throw new ArgumentNullException(nameof(storage));
+            }
 			_storage = storage;
 			_createdItemTimer = new Timer(OnCreatedItemTimerTick, null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
 			_readyItemTimer = new Timer(OnReadyItemTimerTick, null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
@@ -35,8 +39,8 @@ namespace Reminder.Domain
                 throw new ArgumentNullException("Пустой аргумент", nameof(model));
             }
 			var item = new ReminderItem(
-				Guid.NewGuid(),
-				model.ContactId,
+                Guid.NewGuid(),
+                model.ContactId,
 				model.Message,
 				model.Datetime);
 

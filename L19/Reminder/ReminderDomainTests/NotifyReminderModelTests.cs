@@ -7,11 +7,9 @@ namespace ReminderDomainTests
     public class NotifyReminderModelTests
     {
         [Test]
-        public void WhenDeclareNotifyReminderModel_IfNullSpecified_ShouldThrowException()
-        {
+        public void WhenDeclareNotifyReminderModel_IfNullSpecified_ShouldThrowException() =>
             //Arrange-Act-Assert
-            Assert.Catch<ArgumentNullException>( () =>
-                new NotifyReminderModel(null));
-        }
+            Assert.Catch<ArgumentNullException>(() =>
+               new NotifyReminderModel(null));
     }
 }
