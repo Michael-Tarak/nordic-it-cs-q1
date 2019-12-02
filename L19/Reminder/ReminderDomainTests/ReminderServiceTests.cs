@@ -3,6 +3,7 @@ using Reminder.Domain;
 using Reminder.Domain.Models;
 using Reminder.Storage.Memory;
 using System;
+using Reminder.Storage;
 
 namespace ReminderDomainTests
 {
@@ -10,7 +11,7 @@ namespace ReminderDomainTests
     {
 
         [Test]
-        public void WhenDeclare_IfNullSpecified_ThrowExcpetion() =>
+        public void WhenDeclare_IfNullSpecified_ThrowException() =>
             //Arrange-Act-Assert
             Assert.Catch<ArgumentNullException>(
                 () => new ReminderService(null));
