@@ -24,12 +24,14 @@ namespace CityApp.Controllers
 				{
 					Id = Guid.NewGuid(),
 					Name = "Москва",
+                    Descryption = "Столица России",
 					Population = 16_000_000
 				},
 				new City
 				{
 					Id = Guid.NewGuid(),
 					Name = "Санкт Петербург",
+                    Descryption = "Северная столица России",
 					Population = 5_000_000
 				}
 			};
