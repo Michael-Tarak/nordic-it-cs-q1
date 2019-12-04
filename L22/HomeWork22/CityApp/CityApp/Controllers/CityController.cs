@@ -34,5 +34,15 @@ namespace CityApp.Controllers
             CityStorage.Instance.Update(city);
             return Ok();
         }
+
+        // DELETE /cities
+        // DELETE /api/city/put
+        [HttpDelete("cities")]
+        [HttpDelete("api/city/delete")]
+        public IActionResult Delete([FromBody] City city)
+        {
+            CityStorage.Instance.Delete(city);
+            return Ok();
+        }
     }
 }
