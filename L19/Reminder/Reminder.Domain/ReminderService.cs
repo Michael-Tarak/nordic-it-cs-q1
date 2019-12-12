@@ -77,9 +77,9 @@ namespace Reminder.Domain
 					OnItemFailed(item);
 				}
 			}
-		}
+        }
 
-		private void OnItemSent(ReminderItem item)
+        private void OnItemSent(ReminderItem item)
 		{
 			_storage.Update(item.Sent());
 			ItemSent?.Invoke(this, EventArgs.Empty);

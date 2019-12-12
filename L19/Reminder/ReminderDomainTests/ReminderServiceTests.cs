@@ -21,5 +21,8 @@ namespace ReminderDomainTests
             //Arrange-Act-Assert
             Assert.Catch<ArgumentNullException>(() =>
                 new ReminderService(new ReminderStorage()).Create(null));
+
+        [Test]
+        public void When
     }
 }

@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Reminder.Storage\Reminder.Storage.csproj" />
+    <ProjectReference Include="..\Reminder.Sender\Reminder.Sender.csproj" />
+    <ProjectReference Include="..\Reminder.Receiver\Reminder.Receiver.csproj" />
+  </ItemGroup>
+</Project>

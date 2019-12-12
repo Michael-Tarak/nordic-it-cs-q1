@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
@@ -14,7 +13,8 @@ namespace CityApp.ViewModels
 
         [Required(ErrorMessage = "Описание не указано")]
         [MaxLength(1024)]
-        [Compare(nameof(Name))]
+        [NotCompare("Name")]
+        //[Compare(nameof(Name))]
         public string Descryption { get; set; }
 
         [Required(ErrorMessage = "Количество не указано")]
