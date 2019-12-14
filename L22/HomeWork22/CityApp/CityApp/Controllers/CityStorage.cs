@@ -46,9 +46,15 @@ namespace CityApp.Controllers
         /// <summary>
         /// Заменяет существующий город в коллекции
         /// </summary>
-        public void Update(City city)
+        public void Update(Guid id, City city)
         {
-            _cities.Remove(_cities.Find(x => x.Id == city.Id));
+            var cityToUpdate = _cities.Find(x => x.Id == id);
+            if (!_cities.Contains(cityToUpdate))
+            {
+                throw new ArgumentException("Не найден элемент", nameof(id));
+            }
+            _cities.Remove(cityToUpdate);
+            city.Id = id;
             _cities.Add(city);
         }
 
@@ -63,9 +69,14 @@ namespace CityApp.Controllers
         /// <summary>
         /// Метод удаляет город из коллекции
         /// </summary>
-        public void Delete(City city)
+        public void Delete(Guid id)
         {
-            _cities.Remove(_cities.Find(x => x.Id == city.Id));
+            var cityToDelete = _cities.Find(x => x.Id == id);
+            if (!_cities.Contains(cityToDelete))
+            {
+                throw new ArgumentException("Не найден элемент", nameof(id));
+            }
+            _cities.Remove(cityToDelete);
         }
 	}
 }

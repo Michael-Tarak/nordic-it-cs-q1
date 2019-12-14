@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace CityApp.Controllers
 {
@@ -16,33 +17,64 @@ namespace CityApp.Controllers
             Json(CityStorage.Instance.GetAll());
 
         // POST /cities
-        // POST /api/city/post
+        // POST /api/city
         [HttpPost("cities")]
-		[HttpPost("api/city/post")]
-		public IActionResult Create([FromBody] City city)
+		[HttpPost("api/city")]
+		public IActionResult Create([FromBody] CreateCityViewModel model)
 		{
-			CityStorage.Instance.Create(city);
+			CityStorage.Instance.Create(
+                new City
+                {
+                    Id = model.Id,
+                    Name = model.Name,
+                    Population=model.Population,
+                    Descryption = model.Descryption
+                }
+                );
 			return Ok();
 		}
 
         // PUT /cities
-        // PUT /api/city/put
+        // PUT /api/city
         [HttpPut("cities")]
-        [HttpPut("api/city/put")]
-        public IActionResult Update([FromBody] City city)
+        [HttpPut("api/{id}")]
+        public IActionResult Update(Guid id , [FromBody] UpdateCityViewModel model)
         {
-            CityStorage.Instance.Update(city);
+            CityStorage.Instance.Update(
+                id,
+                new City
+                {
+                    Name = model.Name,
+                    Population = model.Population,
+                    Descryption = model.Descryption
+                }
+                );
             return Ok();
         }
 
         // DELETE /cities
-        // DELETE /api/city/put
+        // DELETE /api/city
         [HttpDelete("cities")]
-        [HttpDelete("api/city/delete")]
-        public IActionResult Delete([FromBody] City city)
+        [HttpDelete("api/{id}")]
+        public IActionResult Delete(Guid id)
         {
-            CityStorage.Instance.Delete(city);
+            CityStorage.Instance.Delete(id);
             return Ok();
         }
+    }
+
+    public class CreateCityViewModel
+    {
+        public Guid Id { get; set; }
+        public string Name { get; set; }
+        public string Descryption { get; set; }
+        public int Population { get; set; }
+    }
+
+    public class UpdateCityViewModel
+    {
+        public string Name { get; set; }
+        public string Descryption { get; set; }
+        public int Population { get; set; }
     }
 }
