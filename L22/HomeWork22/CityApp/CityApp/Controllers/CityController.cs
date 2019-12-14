@@ -12,7 +12,7 @@ namespace CityApp.Controllers
         // GET /cities
         // GET /api/city/list
         [HttpGet("cities")]
-        [HttpGet("api/city/list")]
+        [HttpGet("api/city")]
         public IActionResult List() =>
             Json(CityStorage.Instance.GetAll());
 
@@ -37,7 +37,7 @@ namespace CityApp.Controllers
         // PUT /cities
         // PUT /api/city
         [HttpPut("cities")]
-        [HttpPut("api/{id}")]
+        [HttpPut("api/city/{id}")]
         public IActionResult Update(Guid id , [FromBody] UpdateCityViewModel model)
         {
             CityStorage.Instance.Update(
@@ -55,26 +55,11 @@ namespace CityApp.Controllers
         // DELETE /cities
         // DELETE /api/city
         [HttpDelete("cities")]
-        [HttpDelete("api/{id}")]
+        [HttpDelete("api/city/{id}")]
         public IActionResult Delete(Guid id)
         {
             CityStorage.Instance.Delete(id);
             return Ok();
         }
-    }
-
-    public class CreateCityViewModel
-    {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        public string Descryption { get; set; }
-        public int Population { get; set; }
-    }
-
-    public class UpdateCityViewModel
-    {
-        public string Name { get; set; }
-        public string Descryption { get; set; }
-        public int Population { get; set; }
     }
 }
