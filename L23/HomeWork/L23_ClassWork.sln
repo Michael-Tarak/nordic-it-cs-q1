@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L23_C01_asp_net_core_app", "L23_C01_asp_net_core_app\L23_C01_asp_net_core_app.csproj", "{4BBA0F5D-F308-45DC-9E15-794412E7EE43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L23_C02_asp_net_core_app_final", "L23_C02_asp_net_core_app_final\L23_C02_asp_net_core_app_final.csproj", "{CB966548-0264-4E2F-9300-5F752441BD07}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4BBA0F5D-F308-45DC-9E15-794412E7EE43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BBA0F5D-F308-45DC-9E15-794412E7EE43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BBA0F5D-F308-45DC-9E15-794412E7EE43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BBA0F5D-F308-45DC-9E15-794412E7EE43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB966548-0264-4E2F-9300-5F752441BD07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB966548-0264-4E2F-9300-5F752441BD07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB966548-0264-4E2F-9300-5F752441BD07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB966548-0264-4E2F-9300-5F752441BD07}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F9C7DB02-7567-4D1F-A0AB-AB1CF8AAEB13}
+	EndGlobalSection
+EndGlobal

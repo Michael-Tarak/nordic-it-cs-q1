@@ -18,12 +18,6 @@ namespace ReminderDomainTests
                 () => new ReminderService(null));
 
         [Test]
-        public void WhenCreate_IfNullSpecified_ThrowException() =>
-            //Arrange-Act-Assert
-            Assert.Catch<ArgumentNullException>(() =>
-                new ReminderService(new ReminderStorage()).Create(null));
-
-        [Test]
         public void WhenOnReadyItemTimerTick_IfStorageContainsItemWithStatusReady_ShouldBeChangedToStatusSent()
         {
             //Arrange
@@ -46,29 +40,19 @@ namespace ReminderDomainTests
         }
 
         [Test]
-        public void WhenOnReadyItemTimerTick_IfStorageContainsItemWithStatusNotReadyOrCreated_ShouldNotChangeStatus()
+        [TestCase(ReminderItemStatus.Failed)]
+        [TestCase(ReminderItemStatus.Sent)]
+        public void WhenOnReadyItemTimerTick_IfStorageContainsItemWithStatusNotReadyOrCreated_ShouldNotChangeStatus(ReminderItemStatus status)
         {
             //Arrange
-            var itemUndefied = new ReminderItem(
-                        Guid.NewGuid(),
-                        "ContactId",
-                        "Mesage",
-                        DateTimeOffset.Now,
-                        ReminderItemStatus.Undefied);
             var itemSent = new ReminderItem(
                         Guid.NewGuid(),
                         "ContactId",
                         "Mesage",
                         DateTimeOffset.Now,
-                        ReminderItemStatus.Sent);
-            var itemFailed = new ReminderItem(
-                        Guid.NewGuid(),
-                        "ContactId",
-                        "Mesage",
-                        DateTimeOffset.Now,
-                        ReminderItemStatus.Failed);
+                        status);
 
-            var storage = new ReminderStorage(itemUndefied, itemSent, itemFailed);
+            var storage = new ReminderStorage(itemSent);
 
             var service = new ReminderService(storage);
 
@@ -76,27 +60,23 @@ namespace ReminderDomainTests
             Thread.Sleep(2000);
 
             //Assert
-            Assert.AreEqual(itemUndefied.Status, ReminderItemStatus.Undefied);
-            Assert.AreEqual(itemFailed.Status, ReminderItemStatus.Failed);
-            Assert.AreEqual(itemSent.Status, ReminderItemStatus.Sent);
+            Assert.AreEqual(itemSent.Status, status);
         }
         
         [Test]
-        public void WhenDeclare_IfNewItemCreated_ShouldSentItemOnDate()
+        public void WhenCreate_IfNewItemCreated_ShouldSendItemOnDate()
         {
             //Arrange
-            var item = new ReminderItem(
-                        Guid.NewGuid(),
-                        "ContactId",
-                        "Mesage",
-                        DateTimeOffset.Now);
-            var service = new ReminderService(new ReminderStorage(item));
+            var result = false;
+            var service = new ReminderService(new ReminderStorage());
 
             //Act
+            service.ItemSent += (sender, e) => result = true;
+            service.Create(new CreateReminderModel("contact", "message", DateTimeOffset.Now));
             Thread.Sleep(3000);
 
             //Assert
-            Assert.AreEqual(item.Status, ReminderItemStatus.Sent);
+            Assert.IsTrue(result);
         }
 
         [Test]
@@ -111,15 +91,14 @@ namespace ReminderDomainTests
                         ReminderItemStatus.Ready);
             var service = new ReminderService(new ReminderStorage(item));
             var result = false;
-            service.ItemFailed += (sender, e) => result = true;
-            service.ItemNotified += (sernder, e) => throw new Exception();
 
             //Act
+            service.ItemFailed += (sender, e) => result = true;
+            service.ItemNotified += (sernder, e) => throw new Exception();
             Thread.Sleep(2000);
 
             //Assert
             Assert.IsTrue(result);
-
         }
     }
 }
