@@ -63,5 +63,32 @@ namespace L23_C02_asp_net_core_app_final.Storage
 		{
 			_cities.Add(city);
 		}
-	}
+
+        /// <summary>
+        /// Заменяет существующий город в коллекции
+        /// </summary>
+        public void Update(City city)
+        {
+            var cityToUpdate = _cities.Find(x => x.Id == city.Id);
+            if (!_cities.Contains(cityToUpdate))
+            {
+                throw new ArgumentException("Не найден элемент", nameof(city.Id));
+            }
+            _cities.Remove(cityToUpdate);
+            _cities.Add(city);
+        }
+
+        /// <summary>
+        /// Метод удаляет город из коллекции
+        /// </summary>
+        public void Delete(Guid id)
+        {
+            var cityToDelete = _cities.Find(x => x.Id == id);
+            if (!_cities.Contains(cityToDelete))
+            {
+                throw new ArgumentException("Не найден элемент", nameof(id));
+            }
+            _cities.Remove(cityToDelete);
+        }
+    }
 }

@@ -66,6 +66,7 @@ namespace L23_C02_asp_net_core_app_final.Controllers
 				return Conflict();
 			}
 
+
 			var city = new City
 			{
 				Id = Guid.NewGuid(),
@@ -78,5 +79,52 @@ namespace L23_C02_asp_net_core_app_final.Controllers
 
 			return CreatedAtRoute("GetCity", new { Id = city.Id.ToString("N") }, city);
 		}
-	}
+
+        [HttpPut("{id}", Name = nameof(UpdateCity))]
+        public IActionResult UpdateCity(Guid id, [FromBody] CityUpdateViewModel model)
+        {
+            if (model == null)
+            {
+                _logger.LogWarning("Empty payload detected");
+                return BadRequest();
+            }
+
+            if (!ModelState.IsValid)
+            {
+                _logger.LogInformation("Bad payload detected");
+                return BadRequest(ModelState);
+            }
+
+            if (_storage.GetById(id) == default)
+            {
+                _logger.LogWarning("City does not exist");
+                return NotFound();
+            }
+
+            var city = new City
+            {
+                Id = id,
+                Name = model.Name,
+                Description = model.Description,
+                Population = model.Population
+            };
+
+            _storage.Update(city);
+
+            return Ok();
+        }
+
+        [HttpDelete("{id}", Name = nameof(DeleteCity))]
+        public IActionResult DeleteCity(Guid id)
+        {
+            var city = _storage.GetById(id);
+            if (city == null)
+            {
+                _logger.LogWarning("Invalid id detected");
+                return NotFound();
+            }
+            _storage.Delete(id);
+            return Ok();
+        }
+    }
 }
