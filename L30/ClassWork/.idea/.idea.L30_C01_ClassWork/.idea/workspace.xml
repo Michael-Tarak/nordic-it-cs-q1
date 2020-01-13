@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9d7f1e4f-1d0a-43b1-a3c2-0ae9ab549e33" name="Default Changelist" comment="Fix issues" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/L30_C02_working_with_sql_db_final/Orders/IOrderRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/L30_C02_working_with_sql_db_final/Products/IProductRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/L30_C02_working_with_sql_db_final/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/L30_C02_working_with_sql_db_final/Orders/OrderRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/L30_C02_working_with_sql_db_final/Products/ProductRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/L30_C02_working_with_sql_db_final/BaseRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/L30_C02_working_with_sql_db_final/Products/Product.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/L30_C01_working_with_sql_db/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E1FB2BEC-8885-4EDC-A20D-9D12958618CE/11/9060d7a3/SqlDataReader.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/scripts/01_Schema.sql" />
+        <option value="$PROJECT_DIR$/L30_C01_working_with_sql_db/L30_C01_working_with_sql_db.csproj" />
+        <option value="$PROJECT_DIR$/L30_C02_working_with_sql_db_final/L30_C02_working_with_sql_db_final.csproj" />
+        <option value="$PROJECT_DIR$/L30_C02_working_with_sql_db_final/OnlineStoreRepository.cs" />
+        <option value="$PROJECT_DIR$/L30_C02_working_with_sql_db_final/OnlineStoreRepository.Order.cs" />
+        <option value="$PROJECT_DIR$/L30_C02_working_with_sql_db_final/OnlineStoreRepository.Product.cs" />
+        <option value="$PROJECT_DIR$/L30_C02_working_with_sql_db_final/Repositories/BaseRepository.cs" />
+        <option value="$PROJECT_DIR$/L30_C02_working_with_sql_db_final/Repositories/OrderRepository.cs" />
+        <option value="$PROJECT_DIR$/L30_C02_working_with_sql_db_final/Repositories/ProductRepository.cs" />
+        <option value="$PROJECT_DIR$/L30_C02_working_with_sql_db_final/Abstractions/IProductRepository.cs" />
+        <option value="$PROJECT_DIR$/L30_C02_working_with_sql_db_final/Orders/IOrderRepository.cs" />
+        <option value="$PROJECT_DIR$/L30_C02_working_with_sql_db_final/Products/IProductRepository.cs" />
+        <option value="$PROJECT_DIR$/L30_C02_working_with_sql_db_final/Products/ProductRepository.cs" />
+        <option value="$PROJECT_DIR$/L30_C01_working_with_sql_db/Program.cs" />
+        <option value="$PROJECT_DIR$/L30_C02_working_with_sql_db_final/Orders/OrderRepository.cs" />
+        <option value="$PROJECT_DIR$/scripts/03_SPs.sql" />
+        <option value="$PROJECT_DIR$/L30_C02_working_with_sql_db_final/Program.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1VVhzIb5ngIThKwzSNMDc4aVolJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TF_FMT" value="false" />
+    <property name="TWShift.4" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RunManager" selected=".NET Project.L30_C02_working_with_sql_db_final">
+    <configuration name="L30_C01_working_with_sql_db" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/L30_C01_working_with_sql_db/L30_C01_working_with_sql_db.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="L30_C02_working_with_sql_db_final" type="DotNetProject" factoryName=".NET Project" temporary="true">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/L30_C02_working_with_sql_db_final/bin/Debug/netcoreapp3.1/L30_C02_working_with_sql_db_final.dll" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/L30_C02_working_with_sql_db_final/bin/Debug/netcoreapp3.1" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/L30_C02_working_with_sql_db_final/L30_C02_working_with_sql_db_final.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value=".NETCoreApp,Version=v3.1" />
+      <method v="2">
+        <option name="Build" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue=".NET Project.L30_C02_working_with_sql_db_final" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9d7f1e4f-1d0a-43b1-a3c2-0ae9ab549e33" name="Default Changelist" comment="" />
+      <created>1577344431313</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1577344431313</updated>
+      <workItem from="1577344434571" duration="7555000" />
+    </task>
+    <task id="LOCAL-00001" summary="Update final code">
+      <created>1577353987789</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1577353987789</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Insert connection string">
+      <created>1577354015991</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1577354015991</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Fix issues">
+      <created>1577354699314</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1577354699315</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update final code" />
+    <MESSAGE value="Insert connection string" />
+    <MESSAGE value="Fix issues" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix issues" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="880" y="385" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1577344890057">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="880" y="385" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1577344890057" />
+    <state width="429" height="466" key="DebuggerActiveHint" timestamp="1577354079491">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="429" height="466" key="DebuggerActiveHint/0.0.2560.1440@0.0.2560.1440" timestamp="1577354079491" />
+    <state width="2518" height="745" key="GridCell.Tab.0.bottom" timestamp="1577354721013">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2518" height="745" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1577354721013" />
+    <state width="2518" height="745" key="GridCell.Tab.0.center" timestamp="1577354721012">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2518" height="745" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1577354721012" />
+    <state width="2518" height="745" key="GridCell.Tab.0.left" timestamp="1577354721012">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2518" height="745" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1577354721012" />
+    <state width="2518" height="745" key="GridCell.Tab.0.right" timestamp="1577354721013">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2518" height="745" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1577354721013" />
+    <state width="2518" height="529" key="GridCell.Tab.1.bottom" timestamp="1577354721005">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2518" height="529" key="GridCell.Tab.1.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1577354721005" />
+    <state width="2518" height="529" key="GridCell.Tab.1.center" timestamp="1577354721004">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2518" height="529" key="GridCell.Tab.1.center/0.0.2560.1440@0.0.2560.1440" timestamp="1577354721004" />
+    <state width="2518" height="529" key="GridCell.Tab.1.left" timestamp="1577354721004">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2518" height="529" key="GridCell.Tab.1.left/0.0.2560.1440@0.0.2560.1440" timestamp="1577354721004" />
+    <state width="2518" height="529" key="GridCell.Tab.1.right" timestamp="1577354721005">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2518" height="529" key="GridCell.Tab.1.right/0.0.2560.1440@0.0.2560.1440" timestamp="1577354721005" />
+    <state width="2518" height="529" key="GridCell.Tab.2.bottom" timestamp="1577354721007">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2518" height="529" key="GridCell.Tab.2.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1577354721007" />
+    <state width="2518" height="529" key="GridCell.Tab.2.center" timestamp="1577354721006">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2518" height="529" key="GridCell.Tab.2.center/0.0.2560.1440@0.0.2560.1440" timestamp="1577354721006" />
+    <state width="2518" height="529" key="GridCell.Tab.2.left" timestamp="1577354721005">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2518" height="529" key="GridCell.Tab.2.left/0.0.2560.1440@0.0.2560.1440" timestamp="1577354721005" />
+    <state width="2518" height="529" key="GridCell.Tab.2.right" timestamp="1577354721006">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2518" height="529" key="GridCell.Tab.2.right/0.0.2560.1440@0.0.2560.1440" timestamp="1577354721006" />
+    <state width="2518" height="529" key="GridCell.Tab.3.bottom" timestamp="1577354721008">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2518" height="529" key="GridCell.Tab.3.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1577354721008" />
+    <state width="2518" height="529" key="GridCell.Tab.3.center" timestamp="1577354721007">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2518" height="529" key="GridCell.Tab.3.center/0.0.2560.1440@0.0.2560.1440" timestamp="1577354721007" />
+    <state width="2518" height="529" key="GridCell.Tab.3.left" timestamp="1577354721007">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2518" height="529" key="GridCell.Tab.3.left/0.0.2560.1440@0.0.2560.1440" timestamp="1577354721007" />
+    <state width="2518" height="529" key="GridCell.Tab.3.right" timestamp="1577354721008">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2518" height="529" key="GridCell.Tab.3.right/0.0.2560.1440@0.0.2560.1440" timestamp="1577354721008" />
+    <state width="2518" height="529" key="GridCell.Tab.4.bottom" timestamp="1577354721010">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2518" height="529" key="GridCell.Tab.4.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1577354721010" />
+    <state width="2518" height="529" key="GridCell.Tab.4.center" timestamp="1577354721009">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2518" height="529" key="GridCell.Tab.4.center/0.0.2560.1440@0.0.2560.1440" timestamp="1577354721009" />
+    <state width="2518" height="529" key="GridCell.Tab.4.left" timestamp="1577354721009">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2518" height="529" key="GridCell.Tab.4.left/0.0.2560.1440@0.0.2560.1440" timestamp="1577354721009" />
+    <state width="2518" height="529" key="GridCell.Tab.4.right" timestamp="1577354721009">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2518" height="529" key="GridCell.Tab.4.right/0.0.2560.1440@0.0.2560.1440" timestamp="1577354721009" />
+    <state x="894" y="427" key="RiderGenerateDialog" timestamp="1577349214894">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="894" y="427" key="RiderGenerateDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1577349214894" />
+    <state width="582" height="445" key="SwitcherDM" timestamp="1577351321179">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="582" height="445" key="SwitcherDM/0.0.2560.1440@0.0.2560.1440" timestamp="1577351321179" />
+    <state x="904" y="355" width="752" height="729" key="find.popup" timestamp="1577354710638">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="904" y="355" width="752" height="729" key="find.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1577354710638" />
+  </component>
+</project>
