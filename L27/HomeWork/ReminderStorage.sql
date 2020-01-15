@@ -1,22 +1,32 @@
-CREATE TABLE [ReminderStorage]
+CREATE TABLE [ReminderItem]
 (
     [Id] UNIQUEIDENTIFIER NOT NULL ,
     [ContactId] UNIQUEIDENTIFIER NOT NULL,
-    [Message] VARCHAR(1024) NOT NULL,
-    [Datetime] [datetimeoffset] NOT NULL,
-    CONSTRAINT PK_ReminderStorage PRIMARY KEY CLUSTERED (Id),
-    CONSTRAINT FK_ReminderStorage_ContactId FOREIGN KEY (ContactId)
+    [Message] VARCHAR(2048) NOT NULL,
+    [Datetime] DATETIMEOFFSET NOT NULL,
+    [Status] INT NOT NULL,
+    CONSTRAINT PK_ReminderItem PRIMARY KEY CLUSTERED (Id),
+    CONSTRAINT FK_ReminderITem_Status FOREIGN KEY (Status)
+        REFERENCES [ReminderItemStatus] (Id)
+        ON DELETE NO ACTION
+        ON UPDATE NO ACTION,
+    CONSTRAINT FK_ReminderItem_ContactId FOREIGN KEY (ContactId)
         REFERENCES Contact(Id)
-            ON DELETE CASCADE
+            ON DELETE NO ACTION
             ON UPDATE CASCADE
 );
 GO
 
+CREATE TABLE [ReminderItemStatus] (
+    [Id] INT NOT NULL,
+    [Status] VARCHAR(32) NOT NULL,
+    CONSTRAINT PK_ReminderItem PRIMARY KEY CLUSTERED (Id)
+);
+GO
 CREATE TABLE [Contact]
 (
     [Id] UNIQUEIDENTIFIER NOT NULL,
-    [FirstName] VARCHAR(128) NOT NULL,
-    [LastName] VARCHAR(128) NOT NULL
+    [UserName] VARCHAR(64) NOT NULL
     CONSTRAINT PK_Contact PRIMARY KEY CLUSTERED (Id)
 );
 GO
