@@ -13,11 +13,6 @@ namespace Reminder.Receiver.Telegram
 
 		public ReminderReceiver(string token)
 		{
-            if(string.IsNullOrWhiteSpace(token))
-            {
-                throw new ArgumentNullException(nameof(token));
-            }
-
 			_client = new TelegramBotClient(token);
 			_client.OnMessage += OnMessage;
 			_client.StartReceiving();
@@ -28,15 +23,14 @@ namespace Reminder.Receiver.Telegram
 			var contactId = args.Message.From.Id.ToString();
 			var (message, error) = Message.TryParse(args.Message.Text);
 
-			if (string.IsNullOrWhiteSpace(error))
+			if (!string.IsNullOrWhiteSpace(error))
 			{
-				
-                MessageReceived?.Invoke(this, new MessageReceivedEventArgs(contactId, message));
-            }
+				_client.SendTextMessageAsync(new ChatId(contactId), error);
+			}
 			else
 			{
-                _client.SendTextMessageAsync(new ChatId(contactId), error);
-            }
-        }
-    }
+				MessageReceived?.Invoke(this, new MessageReceivedEventArgs(contactId, message));
+			}
+		}
+	}
 }
